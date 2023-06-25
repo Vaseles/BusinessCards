@@ -99,21 +99,21 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': os.environ["PGDATABASE"],
-        # 'USER': os.environ["PGUSER"],
-        # 'PASSWORD': os.environ["PGPASSWORD"],
-        # 'HOST': os.environ["PGHOST"],
-        # 'PORT': os.environ["PGPORT"],
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ["PGDATABASE"],
+        'USER': os.environ["PGUSER"],
+        'PASSWORD': os.environ["PGPASSWORD"],
+        'HOST': os.environ["PGHOST"],
+        'PORT': os.environ["PGPORT"],
         
         # pip install psycopg2-binary   
-        'ENGINE': 'django.db.backends.postgresql', 
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'haTyGyq7vZseReDGRP0P',
-        'HOST': 'containers-us-west-41.railway.app',
-        'PORT': '7827',
-    }
+        # 'ENGINE': 'django.db.backends.postgresql', 
+        # 'NAME': 'railway',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'haTyGyq7vZseReDGRP0P',
+        # 'HOST': 'containers-us-west-41.railway.app',
+        # 'PORT': '7827',
+    }   
 }
 
 
