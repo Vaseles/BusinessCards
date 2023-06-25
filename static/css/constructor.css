@@ -27,10 +27,12 @@ body::before {
     z-index: 10;
     height: 100%;
     position: absolute;
-    border-left: 2px solid #202020;
-    background-color: white;
+    background-color: rgb(227, 227, 227);
     overflow-y: auto;
     color: #202020;
+ }
+ .constructor__right input {
+   color: #202020 !important;
  }
  .constructor__right__buttons {
     display: flex;
