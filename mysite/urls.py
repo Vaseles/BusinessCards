@@ -11,13 +11,13 @@ from django.views.i18n import set_language
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('', include('base.urls')),
-    # path('i18n/', include('django.conf.urls.i18n')),
+    # path('', include('base.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
     
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
-    # path('', include('base.urls')),
+    path('', include('base.urls')),
 )
