@@ -113,3 +113,16 @@ header a {
 header a:hover {
     color: #8ebbff;
 }
+
+@media screen and (max-width:500px) {
+    header {
+        height: 100px;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 2vw;
+    }
+    header a  {
+        font-size: 18px;
+    }
+}

@@ -120,3 +120,16 @@
     border-color: white;
     cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+    .page {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .page__left, .page__right {
+        width: 100%;
+    }
+    .page__right {
+        display: none;
+    }
+}
