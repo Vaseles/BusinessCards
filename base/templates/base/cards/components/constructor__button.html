@@ -1,0 +1,86 @@
+{% load static i18n %}
+<div class="constructor__right__menu constructor__button">
+   <h2>{% trans 'Button' %}</h2>
+   
+   <div class="setting">
+      <label>{% trans 'Background color' %}:</label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_button_background_color'
+         value="{{company.card_button_background_color}}"
+         id = 'card_button_background_color'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Text color' %}:</label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_button_color'
+         value="{{company.card_button_color}}"
+         id = 'card_button_color'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Rounding' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_button_border_radius'
+         value="{{company.card_button_border_radius}}"
+         id = 'card_button_border_radius'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Shadow' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_button_box_shadow'
+         value="{{company.card_button_box_shadow}}"
+         id = 'card_button_box_shadow'
+      />
+   </div>
+   <h2>{% trans 'Hover button' %}</h2>
+   <div class="setting">
+      <label>{% trans 'Background color' %}:</label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_button_background_color_hover'
+         value="{{company.card_button_background_color_hover}}"
+         id = 'card_button_background_color_hover'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Text color' %}:</label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_button_color_hover'
+         value="{{company.card_button_color_hover}}"
+         id = 'card_button_color_hover'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Rounding' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_button_border_radius_hover'
+         value="{{company.card_button_border_radius_hover}}"
+         id = 'card_button_border_radius_hover'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Shadow' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_button_box_shadow_hover'
+         value="{{company.card_button_box_shadow_hover}}"
+         id = 'card_button_box_shadow_hover'
+      />
+   </div>
+</div>

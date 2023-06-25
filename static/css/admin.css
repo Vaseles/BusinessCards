@@ -1,0 +1,77 @@
+.page {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 4%;
+    padding: 10px 5%;
+}
+.page__left {
+    width: 60%;
+}
+.page__right {
+    width: 40%;
+}
+.page__left__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 5%;
+    margin-bottom: 8px;
+}
+.page__left__header__interactive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+.notfound {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin: 5% 0;
+    color: rgb(0,0,0,.3);
+}
+
+/* company */
+.company {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 4px;
+    margin: 4px 0;
+    transition: all .3s linear;
+    border-bottom: 1px solid rgb(0,0,0,.3);
+    border-radius: 4px;
+}
+.company:hover {
+    background-color: rgb(0,0,0,.05);
+}
+.company__info {
+    font-size: 16px;
+    width: 90%;
+}
+.company__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 10%;
+}
+.link {
+    font-size: 24px;
+    transition: all .3s linear;
+    border-radius: 100%;
+    padding: 4px ;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.link:hover {
+    background-color: rgb(0,0,0);
+    color: white;
+}

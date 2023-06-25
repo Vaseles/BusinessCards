@@ -1,0 +1,19 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+<title>{% trans 'Show User Data' %}</title>
+{% endblock title %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<div class="page">
+    <form>
+        <p>{% trans 'Username' %}: {{username}}</p>
+        <p>{% trans 'Password' %}: {{password}}</p>
+        <a class='btn' href='/'>{% trans 'Home page' %}</a>
+    </form>
+</div
+{% endblock content %}

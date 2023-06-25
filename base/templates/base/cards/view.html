@@ -1,0 +1,409 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/view.css' %}">
+<title>{{company.name}}</title>
+{% endblock title %}
+
+{% block content %}
+<style>
+    .pre__card {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       width: 100%;
+       height: 100vh;
+       overflow: hidden;
+       background-color: {{company.background_color}};
+       color: {{company.color}};
+       z-index: 0;
+    }
+    .card {
+       max-width: 360px;
+       display: flex;
+       /* justify-content: center; */
+       align-items: center;
+       flex-direction: column;
+       border: {{company.card_border}};
+       box-shadow:{{company.card_box_shadow}};
+       padding: 3vh .8rem;
+       border-radius: {{company.card_border_radius}};   
+       width: 100%;
+       background-color: {{company.card_background_color}};
+       z-index: 1;
+       min-height: 90vh;
+       height: 100%;
+       max-height: 90vh;
+       overflow-y: auto;
+    }
+    .card__item {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       width: 100%;
+       padding: 6px 4%;
+ 
+    }
+    .data__field {
+       width: 100%;
+    }
+    .our__logo {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+       font-weight:800;
+    }
+    .data {
+       margin: 2% 0;
+       display: flex;
+       /* justify-content: center; */
+       flex-direction: column;
+       width: 100%;
+       align-items: center;
+    }
+    .data__image {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       margin: 3% 0;
+       margin-bottom: 2vh;
+    }
+    .data__image img {
+       width: {{company.card_image_width}};
+       height: {{company.card_image_height}};
+       object-fit: cover;
+       border-radius: {{company.card_image_border_radius}};
+       margin-bottom: 2vh;
+    }
+    .data__image h1 {
+       font-size: {{company.card_title_font_size}};
+       font-weight: {{company.card_title_font_weight}};
+       {% if company.card_title_font_family %}
+         font-family: {{company.card_title_font_family}};
+       {% endif %}
+       {% if company.card_title_font_color %}
+         color: {{company.card_title_font_color}};
+       {% endif %}
+    }
+    
+    .data__field {
+       display: flex;
+       justify-content: flex-start;
+       align-items: flex-start;
+       flex-direction: column;
+       margin-bottom: 5px;
+    }
+    .data__field label {
+       {% if company.card_label_color %}
+          color: {{company.card_label_color}};
+       {% endif %}
+       font-size: {{company.card_label_font_size}};
+       {% if company.card_label_font_family %}
+         font-family: {{company.card_label_font_family}};
+       {% endif %}
+       font-weight: {{company.card_label_font_weight}};
+    }
+    .text {
+       font-size: {{company.card_text_font_size}};
+       {% if company.card_text_font_family %}
+         font-family: {{company.card_text_font_family}};
+       {% endif %}
+       width: 100%;
+       {% if company.card_text_color %}
+          color: {{company.card_text_color}};
+       {% endif %}
+       {% if company.card_text_font_weight %}
+         font-weight: {{company.card_text_font_weight}};
+       {% endif %}
+       cursor: pointer;
+       {% if company.card_text_box_shadow %}
+         box-shadow: {{company.card_text_box_shadow}};
+       {% endif %}
+       {% if company.card_text_border_bottom %}
+         border-bottom: {{company.card_text_border_bottom}}
+       {% endif %}
+       {% if company.card_text_border %}
+          border: {{company.card_text_border}}
+       {% endif %}
+    }
+ 
+    ::selection {
+       background-color: {{company.card_button_background_color}};
+       color: {{company.card_button_color }}; 
+    }
+ 
+    .btn {
+       background-color: {{company.card_button_background_color}};
+       color: {{company.card_button_color }};
+       border-radius: {{company.card_button_border_radius}};
+       max-width: 100%;
+       {% if  company.card_button_box_shadow %} box-shadow: {{company.card_button_box_shadow}}{% endif %}
+    }
+    .btn:hover {
+       background-color: {{company.card_button_background_color_hover}};
+       color: {{company.card_button_color_hover}};
+       {% if company.card_button_border_radius_hover %}
+         border-radius: {{company.card_button_border_radius_hover}};
+       {% endif %}
+       {% if  company.card_button_box_shadow_hover %} box-shadow: {{company.card_button_box_shadow_hover}}{% endif %}
+    }
+    
+    @media screen and (max-width: 500px) {
+       .pre__card {
+          height: 100%;
+          overflow: auto;
+          overflow-x: hidden;
+       }
+       .card {
+          width: 100vw;
+          height: 100vh;
+          border: none;
+          padding: 5vh 4vw;
+          max-width: 500px;
+          margin: 0;
+          max-height: 100%;
+       }
+    }
+    
+    .data__icons {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+       padding: 0 10px;
+       gap: 10px;
+       margin-top: 1vh;
+       flex-wrap: wrap;
+    }
+ 
+    .icon {
+       {% if company.card_icon_color %}
+          color: {{company.card_icon_color}};
+       {% else %}
+          color: {{company.color}};
+       {% endif %}
+       text-decoration: none;
+       font-size: {{company.font_icon_size}};
+       transition: all .3s ease;
+    }
+    .icon:hover {
+       {% if company.card_icon_color_hover %}
+          color: {{company.card_icon_color_hover}};
+       {% endif %}
+    }
+ 
+    /*constructor__pre__card__back*/
+    .constructor__card {
+       display: none;
+    }
+    .constructor__card__image {
+       display: none;
+    }
+    .constructor__card__h2 {
+       display: none;
+    }
+    .constructor__text {
+       display: none;
+    }
+    .button {
+       padding: 6px 10px;
+       background-color: lime;
+       border-radius: 10px;
+       outline: none;
+       border: none !important;
+       font-size: 16px;
+       margin: 6px;
+       transition: all .3s linear;
+       cursor: pointer;
+    }
+    .button:hover {
+       background-color: black;
+       color: aliceblue;
+    }
+    .constructor__button {
+       display: none;
+    }
+ 
+    .constructor__label {
+       display: none;
+    }
+    .copy_message {
+      background-color: black;
+      box-shadow: 0 0 10px 1px rgb(0,0,0,.1) ;
+      position: fixed;
+      bottom: -10%;
+      padding: 2vh 4vw ;
+      border-radius: 10px;
+      transition:  all .3s ease;
+      z-index: 10000;
+      color: white
+   }   
+ </style>
+
+ <div class="pre__card">
+    <div class="card">
+       <div class="card__item">
+       <div class="data__image">
+          <img src="/media/{{company.ava}}" alt="">
+          <h1>{{company.name}}</h1>
+       </div>
+       {% if company.title %}
+          <div class="data__field">
+             <label for="">{% trans 'Header' %}: </label>
+             <p  class="text"> {{company.title}}</p>
+          </div>
+       {% endif %}
+       {% if company.location %}
+          <div class="data__field">
+             <label for="">{% trans 'Place' %}: </label>
+             <p  class="text"> {{company.location}}</p>
+          </div>
+       {% endif %}
+       {% if company.number %}
+          <div class="data__field">
+             <label for="">{% trans 'Number' %}: </label>
+             <p  class="text"> {{company.number}}</p>
+          </div>
+       {% endif %}
+       {% if company.email %}
+          <div class="data__field">
+             <label for="">{% trans 'Email' %}: </label>
+             <p class="text">{{company.email}}</p>
+          </div>
+       {% endif %}
+       {% if company.about %}
+          <div class="data__field">
+             <label for="">{% trans 'About' %}: </label>
+             <p class="text">{{company.about}}</p>
+          </div>
+       {% endif %}
+       {% if company.link_on_video %}
+          <div class="data__field">
+          </div>
+       {% endif %}
+       <button class="btn" id="save">{% trans 'Save' %}</button>
+ 
+       <div class="data__icons">
+          {% if  icons.facebook %}
+          <a class="fa-brands fa-facebook icon" href="{{icons.facebook}}"></a>
+          {% endif %}
+    
+          {% if  icons.instagram %}
+          <a class="fa-brands fa-instagram icon" href="{{icons.instagram}}"></a>
+          {% endif%}
+    
+          {% if  icons.youtube %}
+          <a class="fa-brands fa-youtube icon" href="{{icons.youtube}}"></a>
+          {% endif%}
+    
+          {% if  icons.telegram %}
+          <a class="fa-brands fa-telegram icon" href="{{icons.telegram}}"></a>
+          {% endif%}
+    
+          {% if  icons.twitter %}
+          <a class="fa-brands fa-twitter icon" href="{{icons.twitter}}"></a>
+          {% endif%}
+    
+          {% if  icons.tiktok %}
+          <a class="fa-brands fa-tiktok icon" href="{{icons.tiktok}}"></a>
+          {% endif%}
+    
+          {% if  icons.pinterest %}
+          <a class="fa-brands fa-pinterest icon" href="{{icons.pinterest}}"></a>
+          {% endif%}
+    
+          {% if  icons.snapChat %}
+          <a class="fa-brands fa-snapchat icon" href="{{icons.snapChat}}"></a>
+          {% endif%}
+          
+          {% if  icons.linkedin %}
+          <a class="fa-brands fa-linkedin icon" href="{{icons.linkedin}}"></a>
+          {% endif%}
+          {% if  icons.tumbler %}
+          <a class="fa-brands fa-tumblr icon" href="{{icons.tumbler}}"></a>
+          {% endif%}
+    
+          {% if  icons.vk %}
+          <a class="fa-brands fa-vk icon" href="{{icons.vk}}"></a>
+          {% endif%}
+    
+          {% if  icons.discord %}
+          <a class="fa-brands fa-discord icon" href="{{icons.discord}}"></a>
+          {% endif%}
+    
+          {% if  icons.twitch %}
+          <a class="fa-brands fa-twitch icon" href="{{icons.twitch}}"></a>
+          {% endif%}
+    
+          {% if  icons.quora %}
+          <a class="fa-brands fa-quora icon" href="{{icons.quora}}"></a>
+          {% endif%}
+          
+          {% if  icons.whatsapp %}
+          <a class="fa-brands fa-whatsapp icon" href="{{icons.whatsapp}}"></a>
+          {% endif%}
+    
+          {% if  icons.github %}
+          <a class="fa-brands fa-github icon" href="{{icons.github}}"></a>
+          {% endif%}
+    
+          {% if  icons.sinaweibo %} 
+          <a class="fa-brands fa-sinaweibo icon" href="{{icons.sinaweibo}}"></a>
+          {% endif%}
+    
+          {% if  icons.viber %}
+          <a class="fa-brands fa-viber icon" href="{{icons.viber}}"></a>
+          {% endif%}
+    
+          {% if  icons.skype %}
+          <a class="fa-brands fa-skype icon" href="{{icons.skype}}"></a>
+          {% endif%}
+    
+          {% if  icons.soundCloud %}
+          <a class="fa-brands fa-soundcloud icon" href="{{icons.soundCloud}}"></a>
+          {% endif%}
+    
+          {% if  icons.spotify %}
+          <a class="fa-brands fa-spotify icon" href="{{icons.spotify}}"></a>
+          {% endif%}
+    
+          {% if  icons.their_website1 %}
+          <a class="fa-solid fa-earth-americas icon" href="{{icons.spotify}}"></a>
+          {% endif%}
+    
+          {% if  icons.their_website2 %} 
+          <a class="fa-solid fa-earth-americas icon" href="{{icons.their_website2}}"></a>
+          {% endif%}
+ 
+          {% if  icons.their_website3 %}
+          <a class="fa-solid fa-earth-americas icon" href="{{icons.their_website3}}"></a>
+          {% endif%}
+ 
+          {% if  icons.yandex_taxi %}
+          <a class="fa-solid fa-taxi icon" href="{{icons.yandex_taxi}}"></a>
+          {% endif%}
+ 
+          {% if  icons.yandex_cards %}
+          <a class="fa-solid fa-map icon" href="{{icons.yandex_cards}}"></a>
+          {% endif%}
+ 
+          {% if  icons.google_cards %}
+          <a class="fa-solid fa-map icon" href="{{icons.google_cards}}"></a>
+          {% endif%}
+       </div>
+       </div>
+    </div>
+    
+    <div class="copy_message">
+    {% trans 'Copy' %}!
+    </div>
+ </div>
+
+ <script src='{% static "js/client_page.js" %}'></script>
+{% endblock content %}

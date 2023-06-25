@@ -1,0 +1,54 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+<title>{% trans 'Sign In' %}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="page">
+    <div class="page__left">
+        <form action="" method="POST">
+            {%  csrf_token %}
+            <h1>{% trans 'Sign In' %}</h1>
+            <p>{% trans 'New' %}? <a href="tel: +77052508271">{% trans 'Write to Musa' %}(+7 705 250 8271)</a></p>
+            <input 
+                type="text" 
+                placeholder="{% trans 'Your username' %}"
+                name="username"
+                required
+            />
+            <input 
+                type="password" 
+                placeholder="{% trans 'Your password' %}"
+                name="password"
+                required
+            />
+            <button class="btn">{% trans 'Continue' %}</button>
+        </form>
+    </div>
+    <div class="page__right">
+        <img src="https://images.pexels.com/photos/342943/pexels-photo-342943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" id="sliderImage">
+        <div class="page__slider">
+            <div class="page__slider__content">
+                <div class="page_slider__left">
+                    <p id="sliderTitle">{% trans 'Quickly create a business card in your style!' %}</p>
+                    <span id="sliderCounts">01 _______ 03</span>
+                </div>
+                <div class="page__slider__right">
+                    <span id="sliderLeft" class="material-symbols-outlined">
+                        keyboard_backspace
+                    </span>
+                    <span id="sliderRight" class="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock content %}

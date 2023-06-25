@@ -1,0 +1,74 @@
+{% load static i18n %}
+<div class="constructor__right__menu constructor__text">
+   <h2>{% trans 'Text' %}</h2>
+   <div class="setting">
+      <label>{% trans 'Size' %}</label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_text_font_size'
+         value="{{company.card_text_font_size}}"
+         id = 'card_text_font_size'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Family' %}:  </label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_text_font_family'
+         value="{{company.card_text_font_family}}"
+         id = 'card_text_font_family'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Color' %}:  </label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_text_color'
+         value="{{company.card_text_color}}"
+         id = 'card_text_color'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Weight' %}:  </label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_text_font_weight'
+         value="{{company.card_text_font_weight}}"
+         id = 'card_text_font_weight'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Shadow' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_text_box_shadow'
+         value="{{company.card_text_box_shadow}}"
+         id = 'card_text_box_shadow'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Border Bottom' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_text_border_bottom'
+         value="{{company.card_text_border_bottom}}"
+         id = 'card_text_border_bottom'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Border' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_text_border'
+         value="{{company.card_text_border}}"
+         id = 'card_text_border'
+      />
+   </div>
+</div>

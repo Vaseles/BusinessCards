@@ -1,0 +1,23 @@
+{% load static i18n %}
+<div class="constructor__right__menu constructor__pre__card">
+   <div class="setting">
+      <label>{% trans 'Background color' %}:  </label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'background_color'
+         value="{{company.background_color}}"
+         id = 'background_color'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Color' %}:  </label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'color'
+         value="{{company.color}}"
+         id = 'color'
+      />
+   </div>
+</div>

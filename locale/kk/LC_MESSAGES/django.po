@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-22 19:49+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+#: base/templates/base/cards/components/constructor__button.html:3
+msgid "Button"
+msgstr "Түйме"
+
+#: base/templates/base/cards/components/constructor__button.html:6
+#: base/templates/base/cards/components/constructor__button.html:47
+#: base/templates/base/cards/components/constructor__card.html:5
+#: base/templates/base/cards/components/constructor__pre__card.html:4
+msgid "Background color"
+msgstr "Фон түсі"
+
+#: base/templates/base/cards/components/constructor__button.html:16
+#: base/templates/base/cards/components/constructor__button.html:57
+msgid "Text color"
+msgstr "Мәтін түсі"
+
+#: base/templates/base/cards/components/constructor__button.html:26
+#: base/templates/base/cards/components/constructor__button.html:67
+#: base/templates/base/cards/components/constructor__card.html:15
+#: base/templates/base/cards/components/constructor__card__image.html:16
+msgid "Rounding"
+msgstr "Дөңгелектеу"
+
+#: base/templates/base/cards/components/constructor__button.html:36
+#: base/templates/base/cards/components/constructor__button.html:77
+#: base/templates/base/cards/components/constructor__card.html:25
+#: base/templates/base/cards/components/constructor__text.html:45
+msgid "Shadow"
+msgstr "Көлеңке"
+
+#: base/templates/base/cards/components/constructor__button.html:45
+msgid "Hover button"
+msgstr "Түймені меңзеу"
+
+#: base/templates/base/cards/components/constructor__card.html:3
+msgid "Card"
+msgstr "Визит карточкасы"
+
+#: base/templates/base/cards/components/constructor__card.html:35
+#: base/templates/base/cards/components/constructor__text.html:65
+msgid "Border"
+msgstr "Шекара"
+
+#: base/templates/base/cards/components/constructor__card__h2.html:3
+msgid "Company name"
+msgstr "Компанияның Аты"
+
+#: base/templates/base/cards/components/constructor__card__h2.html:13
+msgid "Text size"
+msgstr "Өлшем"
+
+#: base/templates/base/cards/components/constructor__card__h2.html:23
+#: base/templates/base/cards/components/constructor__card__h2.html:33
+#: base/templates/base/cards/components/constructor__label.html:16
+msgid "Font"
+msgstr "Қаріп"
+
+#: base/templates/base/cards/components/constructor__card__h2.html:43
+#: base/templates/base/cards/components/constructor__label.html:36
+msgid "Font Weight"
+msgstr "Қаріп қалыңдығы"
+
+#: base/templates/base/cards/components/constructor__card__image.html:3
+msgid "Company's logo"
+msgstr "Компанияның логотипі"
+
+#: base/templates/base/cards/components/constructor__card__image.html:26
+msgid "Width"
+msgstr "Ені"
+
+#: base/templates/base/cards/components/constructor__card__image.html:36
+msgid "Height"
+msgstr "Биіктігі"
+
+#: base/templates/base/cards/components/constructor__label.html:3
+msgid "Label field"
+msgstr "Белгі өрісі"
+
+#: base/templates/base/cards/components/constructor__label.html:6
+#: base/templates/base/cards/components/constructor__text.html:5
+#: base/templates/base/cards/constructor.html:465
+msgid "Size"
+msgstr "Өлшем"
+
+#: base/templates/base/cards/components/constructor__label.html:26
+#: base/templates/base/cards/components/constructor__pre__card.html:14
+#: base/templates/base/cards/components/constructor__text.html:25
+msgid "Color"
+msgstr "Түс"
+
+#: base/templates/base/cards/components/constructor__text.html:3
+msgid "Text"
+msgstr "Мәтін"
+
+#: base/templates/base/cards/components/constructor__text.html:15
+msgid "Family"
+msgstr "Шрифт"
+
+#: base/templates/base/cards/components/constructor__text.html:35
+msgid "Weight"
+msgstr "Салмағы"
+
+#: base/templates/base/cards/components/constructor__text.html:55
+msgid "Border Bottom"
+msgstr "Төменгі шекара"
+
+#: base/templates/base/cards/constructor.html:6
+#: base/templates/base/cards/update_info.html:14
+msgid "Constructor"
+msgstr "Конструктор"
+
+#: base/templates/base/cards/constructor.html:427
+msgid "Add More"
+msgstr "Көбірек қосыңыз"
+
+#: base/templates/base/cards/constructor.html:435
+msgid "Exit"
+msgstr "Шығу"
+
+#: base/templates/base/cards/constructor.html:436
+msgid "Look"
+msgstr "Қараңыз"
+
+#: base/templates/base/cards/constructor.html:437
+#: base/templates/base/cards/update_info.html:30
+#: base/templates/base/cards/view.html:290 base/templates/base/settings.html:42
+msgid "Save"
+msgstr "Сақтау"
+
+#: base/templates/base/cards/constructor.html:453
+msgid "Icons"
+msgstr "Белгішелер"
+
+#: base/templates/base/cards/constructor.html:455
+msgid "Icon color"
+msgstr "Түс белгішелері"
+
+#: base/templates/base/cards/constructor.html:475
+msgid "Hover color"
+msgstr "Меңзерді жылжыту түсі"
+
+#: base/templates/base/cards/create.html:7
+msgid "Create Card"
+msgstr "Визит картасын жасау"
+
+#: base/templates/base/cards/create.html:15
+msgid "Create A New Card"
+msgstr "Жаңа визит картасын жасаңыз"
+
+#: base/templates/base/cards/create.html:16
+msgid "Enter name"
+msgstr "Атыңызды енгізіңіз"
+
+#: base/templates/base/cards/create.html:19
+msgid "Create New"
+msgstr "Жаңасын жасау"
+
+#: base/templates/base/cards/create_after.html:7
+msgid "Show User Data"
+msgstr "Пайдаланушы мәліметтерін көрсету"
+
+#: base/templates/base/cards/create_after.html:14
+msgid "Username"
+msgstr "Пайдаланушы аты"
+
+#: base/templates/base/cards/create_after.html:15
+msgid "Password"
+msgstr "Құпия сөз"
+
+#: base/templates/base/cards/create_after.html:16
+msgid "Home page"
+msgstr "Басты бет"
+
+#: base/templates/base/cards/update_info.html:7
+#: base/templates/base/cards/update_info.html:23
+msgid "Update Card"
+msgstr "Визит картасын жаңарту"
+
+#: base/templates/base/cards/update_info.html:16
+msgid "Add social medias"
+msgstr "Әлеуметтік желілерді қосыңыз"
+
+#: base/templates/base/cards/update_info.html:18
+msgid "Update Info"
+msgstr "Ақпаратты жаңарту"
+
+#: base/templates/base/cards/update_info.html:25
+msgid "Update Social Medias"
+msgstr "Әлеуметтік желілерді жаңарту"
+
+#: base/templates/base/cards/view.html:258
+msgid "Header"
+msgstr "Тақырыбы"
+
+#: base/templates/base/cards/view.html:264
+msgid "Place"
+msgstr "Орналасқан жері"
+
+#: base/templates/base/cards/view.html:270
+msgid "Number"
+msgstr "Телефон нөмірі"
+
+#: base/templates/base/cards/view.html:276
+msgid "Email"
+msgstr "Пошта"
+
+#: base/templates/base/cards/view.html:282
+msgid "About"
+msgstr "Туралы"
+
+#: base/templates/base/cards/view.html:404
+msgid "Copy"
+msgstr "Көшіру"
+
+#: base/templates/base/delete.html:7
+msgid "Delete user"
+msgstr "Пайдаланушыны жою"
+
+#: base/templates/base/delete.html:14
+msgid "Do you want to delete"
+msgstr "Жою керек пе"
+
+#: base/templates/base/delete.html:17
+msgid "Return back"
+msgstr "Қайту"
+
+#: base/templates/base/delete.html:18
+msgid "Delete"
+msgstr "Жою"
+
+#: base/templates/base/header.html:3
+msgid "Hi"
+msgstr "Сәлем"
+
+#: base/templates/base/header.html:4
+msgid "Home"
+msgstr "Үй"
+
+#: base/templates/base/header.html:6
+msgid "Django Admin"
+msgstr "Джанго әкімшісі"
+
+#: base/templates/base/header.html:8 base/templates/base/settings.html:8
+#: base/templates/base/settings.html:16
+msgid "Settings"
+msgstr "Параметрлер"
+
+#: base/templates/base/header.html:9
+msgid "Sign Out"
+msgstr "Шығу"
+
+#: base/templates/base/index.html:7
+msgid "Admin panel"
+msgstr "Әкімші панелі"
+
+#: base/templates/base/index.html:15
+msgid "Cards"
+msgstr "Визит карточкалары"
+
+#: base/templates/base/index.html:54 base/templates/base/index.html:87
+msgid "Cards not found"
+msgstr "Визит карталары табылмады"
+
+#: base/templates/base/index.html:62
+msgid "Users"
+msgstr "Пайдаланушылар"
+
+#: base/templates/base/settings.html:20
+msgid "Enter username..."
+msgstr "Пайдаланушы атын енгізіңіз..."
+
+#: base/templates/base/settings.html:27
+msgid "Enter email..."
+msgstr "Электрондық поштаны енгізіңіз..."
+
+#: base/templates/base/settings.html:33
+msgid "Change password..."
+msgstr "Құпия сөзді өзгерту..."
+
+#: base/templates/base/settings.html:38
+msgid "Confirm your password..."
+msgstr "Құпия сөзді растаңыз..."
+
+#: base/templates/base/settings.html:43
+msgid "Go away"
+msgstr "Кету"
+
+#: base/templates/base/sign_in.html:7 base/templates/base/sign_in.html:15
+msgid "Sign In"
+msgstr "Кіру үшін"
+
+#: base/templates/base/sign_in.html:16
+msgid "New"
+msgstr "Жаңа"
+
+#: base/templates/base/sign_in.html:16
+msgid "Write to Musa"
+msgstr "Мұсаға хат жаз"
+
+#: base/templates/base/sign_in.html:19
+msgid "Your username"
+msgstr "Введите имя пользователя"
+
+#: base/templates/base/sign_in.html:25
+msgid "Your password"
+msgstr "Атау құпия сөзін енгізіңіз"
+
+#: base/templates/base/sign_in.html:29
+msgid "Continue"
+msgstr "Жалғастыру"
+
+#: base/templates/base/sign_in.html:37
+msgid "Quickly create a business card in your style!"
+msgstr "Өз стиліңізде визитканы тез жасаңыз!"

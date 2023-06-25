@@ -1,0 +1,45 @@
+{% load static i18n %}
+<div class="constructor__right__menu constructor__card__image">
+   <h2>{% trans "Company's logo" %}</h2>
+   <div class='setting'>
+      <input 
+      type="file"
+      id="constructor_card_change_ava" 
+      class="input"
+      name="ava" 
+   >  
+   </div>
+   <div class='setting'>
+      <img src='/media/{{company.ava}}' class="input__ava" alt='ava' />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Rounding' %}: </label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_image_border_radius'
+         value="{% if company.card_image_border_radius %}{{company.card_image_border_radius}}{% else %} 0px {% endif %}"
+         id = 'card_image_border_radius'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Width' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_image_width'
+         value="{{company.card_image_width}}"
+         id = 'card_image_width'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Height' %}: </label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_image_height'
+         value="{{company.card_image_height}}"
+         id = 'card_image_height'
+      />
+   </div>
+</div>

@@ -1,0 +1,47 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+<title>{% trans 'Settings' %}</title>
+{% endblock title %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<div class="page">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>{% trans 'Settings' %}</h2>
+        <input 
+            type="text" 
+            name="username" 
+            placeholder="{% trans 'Enter username...' %}" 
+            value="{{request.user.username}}"
+            required
+        >
+        <input 
+            type="text" 
+            name="email" 
+            placeholder="{% trans 'Enter email...' %}"
+            value="{{request.user.email}}"
+        >
+        <input 
+            type="password" 
+            name="password" 
+            placeholder="{% trans 'Change password...' %}" 
+        >
+        <input 
+            type="password" 
+            name="password_confirmation" 
+            placeholder="{% trans 'Confirm your password...' %}" 
+        >
+
+        <div class="buttons">
+            <button class="btn">{% trans 'Save' %}</button>
+            <a class="btn" href="/">{% trans 'Go away' %}</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

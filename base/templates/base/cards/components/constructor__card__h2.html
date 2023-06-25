@@ -1,0 +1,52 @@
+{% load static i18n %}
+<div class="constructor__right__menu constructor__card__h2">
+   <h2>{% trans 'Company name' %}</h2>
+   <input 
+      type="text"
+      id="constructor_card_change_h2" 
+      class="input"
+      name="name" 
+      placeholder="Название..." 
+      value="{{company.name}}"
+   >
+   <div class="setting">
+      <label>{% trans 'Text size' %}: </label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_title_font_size'
+         value="{{company.card_title_font_size}}"
+         id = 'card_title_font_size'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Font' %}:</label>
+      <input 
+         type="text" 
+         class="settings__color settings__color__max"
+         name = 'card_title_font_family'
+         value="{{company.card_title_font_family}}"
+         id = 'card_title_font_family'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Font' %}: </label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_title_font_color'
+         value="{{company.card_title_font_color}}"
+         id = 'card_title_font_color'
+      />
+   </div>
+   <div class="setting">
+      <label>{% trans 'Font Weight' %}: </label>
+      <input 
+         type="text" 
+         class="settings__color"
+         name = 'card_title_font_weight'
+         value="{{company.card_title_font_weight}}"
+         id = 'card_title_font_weight'
+      />
+   </div>
+</div>

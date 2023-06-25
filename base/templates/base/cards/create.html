@@ -1,0 +1,30 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}">
+<title>{% trans 'Create Card' %}</title>
+{% endblock title %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<div class="page">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>{% trans 'Create A New Card' %}</h2>
+        <input type="text" name="name" placeholder="{% trans 'Enter name' %}..." required>
+
+        <select name="user">
+            <option value="create_new">{% trans 'Create New' %}</option>
+            {% for user in users %}
+                <option value="{{ user.id }}">
+                    {{ user.username }}
+                    {% if user.email %}- {{user.email}}{% endif %}
+                </option>
+            {% endfor %}
+        </select>
+        <button class="btn">Save</button>
+    </form>
+</div
+{% endblock content %}

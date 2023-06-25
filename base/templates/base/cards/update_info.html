@@ -1,0 +1,33 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/update_info.css' %}">
+<title>{% trans 'Update Card' %}</title>
+{% endblock title %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<div class="page">
+    <form action="" method="POST">
+        <a class='btn' href='{% url "base:constructor" company.slug %}'>{% trans 'Constructor' %}</a>
+        {% if type == 'add_more_fields' %}
+            <a class='btn' href='{% url "base:social_medias" company.slug %}'>{% trans 'Add social medias' %}</a>
+        {% else %}
+            <a class='btn' href='{% url "base:add_more_fields" company.slug %}'>{% trans 'Update Info' %}</a>
+        {% endif %}
+        {% csrf_token %}
+
+        {% if type == 'add_more_fields' %}
+            <h2>{% trans 'Update Card' %}</h2>
+        {% else %}
+            <h2>{% trans 'Update Social Medias' %}</h2>
+        {% endif %}
+
+        {{form.as_p}}
+
+        <button class="btn">{% trans 'Save' %}</button>
+    </form>
+</div
+{% endblock content %}

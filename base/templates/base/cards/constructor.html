@@ -1,0 +1,787 @@
+{% include "main.html" %}
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/constructor.css' %}">
+<title>{% trans 'Constructor' %}</title>
+{% endblock title %}
+
+{% block content %}
+<form class="constructor" method="POST" enctype="multipart/form-data">
+   {% csrf_token %}
+   <div class="constructor__left">
+      <style>
+         .input {
+            width: 100%;
+            margin: 10px 0;
+            font-size: 18px;
+            background-color: rgb(254,254,254,.05);
+            outline: none;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,.2);
+         }
+         
+         input {
+            background-color: transparent;
+            border-right: none;
+            outline: none;
+            border: none;
+            color: {% if company.card_text_color %}
+            {{company.card_text_color}}
+            {% else %}
+            {{company.color}};
+            {% endif %} ;
+         }
+         .textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(254,254,254,.05);
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            color: white;
+            max-width: 100%;
+            min-width: 100%;
+            height: 150`px
+         }
+         .pre__card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: {{company.background_color}};
+            color: {{company.color}};
+            z-index: 0;
+         }
+         .card {
+            max-width: 360px;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+            border: {{company.card_border}};
+            box-shadow:{{company.card_box_shadow}};
+            padding: 3vh .8rem;
+            border-radius: {{company.card_border_radius}};   
+            width: 100%;
+            background-color: {{company.card_background_color}};
+            z-index: 1;
+            min-height: 90vh;
+            height: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+         }
+         .card__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            padding: 6px 4%;
+
+         }
+         .data__field {
+            width: 100%;
+         }
+         .our__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            font-weight:800;
+         }
+         .data {
+            margin: 2% 0;
+            display: flex;
+            /* justify-content: center; */
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+         }
+         .data__image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 3% 0;
+            margin-bottom: 2vh;
+         }
+         .data__image img {
+            width: {{company.card_image_width}};
+            height: {{company.card_image_height}};
+            object-fit: cover;
+            border-radius: {{company.card_image_border_radius}};
+            margin-bottom: 2vh;
+         }
+         .data__image h1 {
+            font-size: {{company.card_title_font_size}};
+            font-weight: {{company.card_title_font_weight}};
+            {% if company.card_title_font_family %}
+              font-family: {{company.card_title_font_family}};
+            {% endif %}
+            {% if company.card_title_font_color %}
+              color: {{company.card_title_font_color}};
+            {% endif %}
+         }
+         
+         .data__field {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-bottom: 5px;
+         }
+         .data__field label {
+            {% if company.card_label_color %}
+               color: {{company.card_label_color}};
+            {% endif %}
+            font-size: {{company.card_label_font_size}};
+            {% if company.card_label_font_family %}
+              font-family: {{company.card_label_font_family}};
+            {% endif %}
+            font-weight: {{company.card_label_font_weight}};
+         }
+         .text {
+            font-size: {{company.card_text_font_size}};
+            {% if company.card_text_font_family %}
+              font-family: {{company.card_text_font_family}};
+            {% endif %}
+            width: 100%;
+            {% if company.card_text_color %}
+               color: {{company.card_text_color}};
+            {% endif %}
+            {% if company.card_text_font_weight %}
+              font-weight: {{company.card_text_font_weight}};
+            {% endif %}
+            cursor: pointer;
+            {% if company.card_text_box_shadow %}
+              box-shadow: {{company.card_text_box_shadow}};
+            {% endif %}
+            {% if company.card_text_border_bottom %}
+              border-bottom: {{company.card_text_border_bottom}}
+            {% endif %}
+            {% if company.card_text_border %}
+               border: {{company.card_text_border}}
+            {% endif %}
+         }
+
+         ::selection {
+            background-color: {{company.card_button_background_color}};
+            color: {{company.card_button_color }}; 
+         }
+      
+         .btn {
+            background-color: {{company.card_button_background_color}};
+            color: {{company.card_button_color }};
+            border-radius: {{company.card_button_border_radius}};
+            max-width: 100%;
+            {% if  company.card_button_box_shadow %} box-shadow: {{company.card_button_box_shadow}}{% endif %}
+         }
+         .btn:hover {
+            background-color: {{company.card_button_background_color_hover}};
+            color: {{company.card_button_color_hover}};
+            {% if company.card_button_border_radius_hover %}
+              border-radius: {{company.card_button_border_radius_hover}};
+            {% endif %}
+            {% if  company.card_button_box_shadow_hover %} box-shadow: {{company.card_button_box_shadow_hover}}{% endif %}
+         }
+         
+         @media screen and (max-width: 500px) {
+            .card {
+               width: 100vw;
+               height: 100vh;
+               border: none;
+               padding: 5vh 4vw;
+               max-width: 500px;
+            }
+         }
+         
+         .data__icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 10px;
+            gap: 10px;
+            margin-top: 1vh;
+            flex-wrap: wrap;
+            margin-bottom: 10px
+         }
+      
+         .icon {
+            {% if company.card_icon_color %}
+               color: {{company.card_icon_color}};
+            {% else %}
+               color: {{company.color}};
+            {% endif %}
+            text-decoration: none;
+            font-size: {{company.font_icon_size}};
+            transition: all .3s ease;
+         }
+         .icon:hover {
+            {% if company.card_icon_color_hover %}
+               color: {{company.card_icon_color_hover}};
+            {% endif %}
+         }
+
+         .constructor__card,
+         .constructor__card__h2,  
+         .constructor__text, 
+         .constructor__card__image {
+            display: none;
+         }
+
+         h2 {
+            padding: 0 5%;
+            width: 100%;
+            font-size: 20px !important;
+            border-bottom: 1px solid rgb(254,254,254,.3);
+            text-shadow: 1px 1px 1px #8ebbff;
+            width: 100%;
+            min-width: 100%;
+         }
+         .button {
+            padding: 6px 10px;
+            background-color: #8ebbff;
+            border-radius: 10px;
+            outline: none;
+            border: none !important;
+            font-size: 16px;
+            margin: 6px;
+            transition: all .3s linear;
+            cursor: pointer;
+         }
+         .button:hover {
+            background-color: black;
+            color: aliceblue;
+         }
+         .constructor__button, .constructor__label, .constructor__icon{
+            display: none;
+         }  
+         textarea {
+            color: {% if company.card_text_color %}
+               {{company.card_text_color}}
+               {% else %}
+               {{company.color}}
+               {% endif %}
+         }
+
+         
+      </style>
+      <div class="pre__card" title="основное" >
+
+         <div class="card" title="карточка">
+            <div class="card__item">
+            <div class="data__image">
+               <img src="/media/{{company.ava}}" alt="" class="data__image__img" title="логотип">
+               <h1 class="data__h2" title="Название">{{company.name}}</h1>
+            </div>
+            {% if company.title %}
+               <div class="data__field">
+                  <label for="" class="label" title="Поле пометки">Заголовок: </label>
+                  <input  class="text" title="title" name='title' value="{{company.title}}"/>
+               </div>
+            {% endif %}
+            {% if company.location %}
+               <div class="data__field">
+                  <label for="" class="label" title="Поле пометки">Место: </label>
+                  <input  class="text" name="location" title='location' value="{{company.location}}" />
+               </div>
+            {% endif %}
+            {% if company.number %}
+               <div class="data__field">
+                  <label for="" class="label" title="Поле пометки">Номер: </label>
+                  <input class="text" name="number" title="number" value="{{company.number}}" />
+               </div>
+            {% endif %}
+            {% if company.email %}
+               <div class="data__field">
+                  <label for="" class="label" title="Поле пометки">Почта: </label>
+                  <input class="text" name="email"  value="{{company.email}}">
+               </div>
+            {% endif %}
+            {% if company.about %}
+               <div class="data__field">
+                  <label for="" class="label" title="Поле пометки">Об: </label>
+                  <textarea class="text" name="about">{{company.about}}</textarea>
+               </div>
+            {% endif %}
+            <button type="button" class="btn" id="save" title="кнопка">Сохранить</button>
+            {% include "base/cards/components/icons.html" %}
+
+            <div class="data__icons">
+               {% if  icons.facebook %}
+               <a class="fa-brands fa-facebook icon"></a>
+               {% endif %}
+         
+               {% if  icons.instagram %}
+               <a class="fa-brands fa-instagram icon" ></a>
+               {% endif%}
+         
+               {% if  icons.youtube %}
+               <a class="fa-brands fa-youtube icon" ></a>
+               {% endif%}
+         
+               {% if  icons.telegram %}
+               <a class="fa-brands fa-telegram icon" ></a>
+               {% endif%}
+         
+               {% if  icons.twitter %}
+               <a class="fa-brands fa-twitter icon" ></a>
+               {% endif%}
+         
+               {% if  icons.tiktok %}
+               <a class="fa-brands fa-tiktok icon" ></a>
+               {% endif%}
+         
+               {% if  icons.pinterest %}
+               <a class="fa-brands fa-pinterest icon" ></a>
+               {% endif%}
+         
+               {% if  icons.snapChat %}
+               <a class="fa-brands fa-snapchat icon"></a>
+               {% endif%}
+               
+               {% if  icons.linkedin %}
+               <a class="fa-brands fa-linkedin icon"></a>
+               {% endif%}
+               {% if  icons.tumbler %}
+               <a class="fa-brands fa-tumblr icon" ></a>
+               {% endif%}
+         
+               {% if  icons.vk %}
+               <a class="fa-brands fa-vk icon" ></a>
+               {% endif%}
+         
+               {% if  icons.discord %}
+               <a class="fa-brands fa-discord icon"></a>
+               {% endif%}
+         
+               {% if  icons.twitch %}
+               <a class="fa-brands fa-twitch icon"></a>
+               {% endif%}
+         
+               {% if  icons.quora %}
+               <a class="fa-brands fa-quora icon"></a>
+               {% endif%}
+               
+               {% if  icons.whatsapp %}
+               <a class="fa-brands fa-whatsapp icon"></a>
+               {% endif%}
+         
+               {% if  icons.github %}
+               <a class="fa-brands fa-github icon" ></a>
+               {% endif%}
+         
+               {% if  icons.sinaweibo %} 
+               <a class="fa-brands fa-sinaweibo icon" ></a>
+               {% endif%}
+         
+               {% if  icons.viber %}
+               <a class="fa-brands fa-viber icon" ></a>
+               {% endif%}
+         
+               {% if  icons.skype %}
+               <a class="fa-brands fa-skype icon" ></a>
+               {% endif%}
+         
+               {% if  icons.soundCloud %}
+               <a class="fa-brands fa-soundcloud icon" ></a>
+               {% endif%}
+         
+               {% if  icons.spotify %}
+               <a class="fa-brands fa-spotify icon" ></a>
+               {% endif%}
+         
+               {% if  icons.their_website1 %}
+               <a class="fa-solid fa-earth-americas icon"></a>
+               {% endif%}
+         
+               {% if  icons.their_website2 %} 
+               <a class="fa-solid fa-earth-americas icon"></a>
+               {% endif%}
+               
+               {% if  icons.their_website3 %}
+               <a class="fa-solid fa-earth-americas icon"></a>
+               {% endif%}
+
+               {% if  icons.yandex_taxi %}
+               <a class="fa-solid fa-taxi icon"></a>
+               {% endif%}
+
+               {% if  icons.yandex_cards %}
+               <a class="fa-solid fa-map icon"></a>
+               {% endif%}
+
+               {% if  icons.google_cards %}
+               <a class="fa-solid fa-map icon"></a>
+               {% endif%}
+            </div>
+            <a class='add__more' href='{% url "base:add_more_fields" company.slug %}'>{% trans 'Add More' %}</a>
+         </div>
+      </div>
+   </div>
+   </div>
+   <div class="constructor__right" >
+
+      <div class="constructor__right__buttons">
+         <a href="{% url 'base:index' %}" class="link"><i class="fa-solid fa-arrow-left-long"></i>{% trans 'Exit' %}</a>
+         <a class="button constructor__btn" href='{% url "base:show_company" company.slug %}'>{% trans 'Look' %}</a>
+         <button class="button constructor__btn">{% trans 'Save' %}</button>
+      </div>
+
+      <div class="constructor__right__footer">
+         
+      </div>
+
+      {% include "base/cards/components/constructor__pre__card.html" %}
+      {% include "base/cards/components/constructor__card.html" %}
+      {% include "base/cards/components/constructor__card__image.html" %}
+      {% include "base/cards/components/constructor__card__h2.html" %}
+      {% include "base/cards/components/constructor__button.html" %}
+      {% include "base/cards/components/constructor__text.html" %}
+      {% include "base/cards/components/constructor__label.html" %}
+
+      <div class="constructor__right__menu constructor__icon">
+         <h2>{% trans 'Icons' %}</h2>
+         <div class="setting">
+            <label>{% trans 'Icon color' %}:  </label>
+            <input 
+               type="color" 
+               class="settings__color"
+               name = 'card_icon_color'
+               value="{{company.card_icon_color}}"
+               id = 'card_icon_color'
+            />
+         </div>
+         <div class="setting">
+            <label>{% trans 'Size' %}:</label>
+            <input 
+               type="text" 
+               class="settings__color"
+               name = 'font_icon_size'
+               value="{{company.font_icon_size}}"
+               id = 'font_icon_size'
+            />
+         </div>
+         <div class="setting">
+            <label>{% trans 'Hover color' %}:</label>
+            <input 
+               type="color" 
+               class="settings__color"
+               name = 'card_icon_color_hover'
+               value="{{company.card_icon_color_hover}}"
+               id = 'card_icon_color_hover'
+            />
+         </div>
+      </div>
+
+   </div>
+</form>
+
+<script>
+   // MENU
+   let constructor__pre__card = document.querySelector('.constructor__pre__card')
+   let constructor__card = document.querySelector('.constructor__card')
+   let constructor__card__image = document.querySelector('.constructor__card__image')
+   let constructor__card__h2= document.querySelector('.constructor__card__h2')
+   let constructor__button = document.querySelector('.constructor__button')
+   let constructor__text = document.querySelector('.constructor__text')
+   let constructor__label = document.querySelector('.constructor__label')
+   let constructor__icon = document.querySelector('.constructor__icon')
+
+   let for_rendering_when_u_click_on_it = [constructor__icon, constructor__pre__card, constructor__card, constructor__card__image, constructor__card__h2, constructor__button, constructor__text, constructor__label]
+
+   // COMPONENTS FOR CHANGE
+   let pre_card = document.querySelector('.pre__card');
+   let card = document.querySelector('.card');
+   let data__image__img = document.querySelector('.data__image__img');
+   let data__h2 = document.querySelector('.data__h2');
+   let btn = document.querySelector('.btn');
+   let texts = document.querySelectorAll('.text')
+   let labels = document.querySelectorAll('.label')
+   let icons = document.querySelectorAll('.fa-brands ')
+
+   let clearRendering = () => {
+      for_rendering_when_u_click_on_it.map(element => element.style.display = 'none')
+   }
+
+   pre_card.addEventListener('click', (e) => {
+      let clickedElement = e.target
+      let clickedElementClass = clickedElement.className.split(' ')[0];
+
+      switch(clickedElementClass) {
+         case 'pre__card':
+            clearRendering()
+            constructor__pre__card.style.display = 'block';
+            break;
+         case 'card':
+            clearRendering()
+            constructor__card.style.display = 'block';
+            break;
+         case 'data__image__img':
+            clearRendering()
+            constructor__card__image.style.display = 'block';
+            break;
+         case 'data__h2':
+            clearRendering()
+            constructor__card__h2.style.display = 'block';
+            break;
+         case 'btn':
+            clearRendering();
+            constructor__button.style.display = 'block';
+            break;
+         case 'text':
+            clearRendering();
+            constructor__text.style.display = 'block';
+            break;
+         case 'label':
+            clearRendering();
+            constructor__label.style.display = 'block';
+            break;
+         case 'card__item':
+            clearRendering()
+            constructor__card.style.display = 'block';
+            break;
+         case 'fa-brands':
+            clearRendering();
+            constructor__icon.style.display = 'block';
+         default: 
+            console.log(clickedElementClass)
+      }
+   })
+   
+   // SETTINGS
+   let background_color = document.getElementById('background_color');
+   let color = document.getElementById('color');
+   let  card_background_color = document.getElementById('card_background_color');
+   let card_border_radius = document.getElementById('card_border_radius');
+   let card_box_shadow = document.getElementById('card_box_shadow');
+   let card_border = document.getElementById('card_border');
+
+   // WORK
+   background_color.addEventListener('change', () => {
+      pre_card.style.backgroundColor = background_color.value;
+   });
+
+   color.addEventListener('change', () => {
+      pre_card.style.color = color.value;
+   });
+
+   card_background_color.addEventListener('change', () => {
+      card.style.backgroundColor = card_background_color.value;
+   })
+
+   card_border_radius.addEventListener('change', () => {
+      card.style.borderRadius = `${card_border_radius.value}`
+   });
+
+   card_box_shadow.addEventListener('change', () => {
+      card.style.boxShadow = `${card_box_shadow.value}`
+   });
+
+   card_border.addEventListener('change', () => {
+      card.style.border = `${card_border.value}`
+   });
+
+   let card_image_border_radius = document.getElementById('card_image_border_radius');
+   let card_image_width = document.getElementById('card_image_width');
+   let card_image_height = document.getElementById('card_image_height');
+
+   card_image_border_radius.addEventListener('change', () => {
+      data__image__img.style.borderRadius = `${card_image_border_radius.value}`
+   });
+
+   card_image_width.addEventListener('change', () => {
+      data__image__img.style.width = `${card_image_width.value}`
+   });
+
+   card_image_height.addEventListener('change', () => {
+      data__image__img.style.height = `${card_image_height.value}`
+      console.log(card_image_height.value)
+   });
+
+   let constructor_card_change_ava = document.getElementById('constructor_card_change_ava')
+   let input__ava = document.querySelector('.input__ava')
+
+   constructor_card_change_ava.addEventListener('change', function(e) {
+      preview(this.files[0])
+   })
+
+   function preview(file) {
+      if (file.type.match(/image.*/) ) {
+         let reader = new FileReader(), img;
+
+         reader.onload = (event) =>{
+            data__image__img.src = event.target.result;
+            input__ava.src = event.target.result
+         }
+         
+         reader.readAsDataURL(file)
+      }
+   }
+
+   card_title_font_size = document.getElementById('card_title_font_size')
+   card_title_font_family = document.getElementById('card_title_font_family')
+   card_title_font_color = document.getElementById('card_title_font_color')
+   card_title_font_weight = document.getElementById('card_title_font_weight')
+
+   constructor_card_change_h2 = document.getElementById('constructor_card_change_h2')
+
+   card_title_font_size.addEventListener('change', () => {
+      data__h2.style.fontSize = `${card_title_font_size.value}`
+   });
+
+   constructor_card_change_h2.addEventListener('change', () => {
+      data__h2.innerHTML = constructor_card_change_h2.value
+      console.log(constructor_card_change_h2.value)
+   });
+
+   card_title_font_family.addEventListener('change', () => {
+      data__h2.style.fontFamily = `${card_title_font_family.value}`
+   });
+
+   card_title_font_color.addEventListener('change', () => {
+      data__h2.style.color = `${card_title_font_color.value}`
+   });
+
+   card_title_font_weight.addEventListener('change', () => {
+      data__h2.style.fontWeight = `${card_title_font_weight.value}`
+   });
+
+   //BUTTON
+   let card_button_background_color = document.getElementById('card_button_background_color');
+   let card_button_color = document.getElementById('card_button_color')
+   let card_button_border_radius = document.getElementById('card_button_border_radius')
+   let card_button_box_shadow = document.getElementById('card_button_box_shadow');
+
+   card_button_background_color.addEventListener('change', () => {
+      btn.style.backgroundColor = `${card_button_background_color.value}`
+   });
+
+   card_button_color.addEventListener('change', () => {
+      btn.style.color = `${card_button_color.value}`
+   });
+
+   card_button_border_radius.addEventListener('change', () => {
+      btn.style.borderRadius = `${card_button_border_radius.value}`
+   });
+
+   card_button_box_shadow.addEventListener('change', () => {
+      btn.style.boxShadow = `${card_button_box_shadow.value}`
+   });
+
+   let card_button_background_color_hover = document.getElementById('card_button_background_color_hover')
+   let card_button_color_hover = document.getElementById('card_button_color_hover')
+   let card_button_border_radius_hover = document.getElementById('card_button_border_radius_hover')
+   let card_button_box_shadow_hover = document.getElementById('card_button_box_shadow_hover')
+
+   card_button_background_color_hover.addEventListener('change', () => {
+      btn.addEventListener('hover', () => {
+         btn.style.backgroundColor = card_button_background_color_hover.value;
+      })
+   })
+
+   card_button_color_hover.addEventListener('change', () => {
+      btn.addEventListener('hover', () => {
+         btn.style.backgroundColor = card_button_color_hover.value
+      })
+   })
+   
+   card_button_border_radius_hover.addEventListener('change', () => {
+      btn.addEventListener('hover', () => {
+         btn.style.backgroundColor = card_button_border_radius_hover.value
+      })
+   })
+
+   card_button_box_shadow_hover.addEventListener('change', () => {
+      btn.addEventListener('hover', () => {
+         btn.style.backgroundColor = card_button_box_shadow_hover.value
+      })
+   })
+
+   //texts
+   let card_text_font_size = document.getElementById('card_text_font_size')
+   let card_text_font_family = document.getElementById('card_text_font_family')
+   let card_text_color = document.getElementById('card_text_color')
+   let card_text_font_weight = document.getElementById('card_text_font_weight')
+   let card_text_box_shadow = document.getElementById('card_text_box_shadow')
+   let card_text_border_bottom = document.getElementById('card_text_border_bottom') 
+   let card_text_border =  document.getElementById('card_text_border')
+   let constructor_card_change_text = document.querySelector('.constructor_card_change_text')
+
+   for (let text  of texts) {
+      card_text_font_size.addEventListener('change', () => {
+         text.style.fontSize = card_text_font_size.value
+      })
+
+      card_text_font_family.addEventListener('change', () => {
+         text.style.fontFamily = card_text_font_family.value
+      })
+
+      card_text_color.addEventListener('change', () => {
+         text.style.color = card_text_color.value
+      })
+
+      card_text_font_weight.addEventListener('change', () => {
+         text.style.fontWeight = card_text_font_weight.value
+      })
+
+      card_text_box_shadow.addEventListener('change', () => {
+         text.style.boxShadow = card_text_box_shadow.value
+      })
+      card_text_border_bottom.addEventListener('change', () => {
+         text.style.borderBottom = card_text_border_bottom.value
+      })
+      card_text_border.addEventListener('change', () => {
+         text.style.border = card_text_border.value
+      })
+   }
+
+   //labels
+   let card_label_font_size = document.getElementById('card_label_font_size')
+   let card_label_font_family = document.getElementById('card_label_font_family')
+   let card_label_color = document.getElementById('card_label_color')
+   let card_label_font_weight = document.getElementById('card_label_font_weight')
+
+   for (let label  of labels) {
+      card_label_font_size.addEventListener('change', () => {
+         label.style.fontSize = card_label_font_size.value
+      })
+
+      card_label_font_family.addEventListener('change', () => {
+         label.style.fontFamily = card_label_font_family.value
+      })
+
+      card_label_color.addEventListener('change', () => {
+         label.style.color = card_label_color.value
+      })
+
+      card_label_font_weight.addEventListener('change', () => {
+         label.style.fontWeight = card_label_font_weight.value
+      })
+   }
+
+   let card_icon_color = document.getElementById('card_icon_color')
+   let font_icon_size = document.getElementById('font_icon_size')
+   let card_icon_color_hover =   document.getElementById('card_icon_color_hover')
+
+   for (let icon of icons) {
+      card_icon_color.addEventListener('change', () => {
+         icon.style.color = card_icon_color.value
+      })
+
+      font_icon_size.addEventListener('change', () => {
+         icon.style.fontSize = font_icon_size.value
+      })
+   }
+</script>
+
+{% endblock content %}

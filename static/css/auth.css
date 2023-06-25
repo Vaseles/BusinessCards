@@ -1,0 +1,122 @@
+.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+/* page left */
+.page__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    padding: 10px 5%;
+}
+.page__left form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+    row-gap: 10px;
+}
+.page__left form h1 {
+    margin-bottom: -10px;
+    font-size: 42px;
+
+    width: 100%;
+    text-align: left;
+}
+.page__left form p {
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    width: 100%;
+    text-align: left;
+}
+.page__left form p a {
+    font-weight: bold;
+}
+.page__left form p a:hover {
+    text-decoration: underline;
+}
+
+
+/* page right */
+.page__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    position: relative;
+}
+.page__right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+.page__slider {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: #F6F1F1;
+}
+.page__slider__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 4%;
+    background-color: #0a0a0a;
+}
+.page_slider__left {
+    width: 75%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+}
+.page_slider__left p {
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+.page_slider__left span {
+    font-size: 14px;
+    color: rgb(254,254,254,.8);
+}
+.page__slider__right {
+    width: 25%;
+    height: 100%;
+    gap: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.page__slider__right span {
+    border: 2px solid rgb(254,254,254,.7);
+    padding: 4px;
+    border-radius: 100%;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(254,254,254,.7);
+    transition:  all .3s linear;
+}
+.page__slider__right span:hover {
+    color: white;
+    border-color: white;
+    cursor: pointer;
+}

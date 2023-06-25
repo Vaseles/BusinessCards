@@ -1,0 +1,27 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 2% 0;
+}
+.page form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    row-gap: 10px;
+    border: 1px solid rgb(10,10,10,.3);
+    padding: 2%;
+    border-radius: 10px;
+}
+.page form p {
+    width: 100%;
+    text-align: left;
+}
+.page form h2 {
+    margin-bottom: 8px;
+}

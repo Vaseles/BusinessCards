@@ -1,0 +1,44 @@
+{% load static i18n %}
+<div class="constructor__right__menu constructor__card">
+   <h2>{% trans 'Card' %}</h2>
+   <div class="setting">
+      <label>{% trans 'Background color' %}:  </label>
+      <input 
+         type="color" 
+         class="settings__color"
+         name = 'card_background_color'
+         value="{{company.card_background_color}}"
+         id = 'card_background_color'
+      />
+</div>
+<div class="setting">
+   <label>{% trans 'Rounding' %}: </label>
+   <input 
+      type="text" 
+      class="settings__color"
+      name = 'card_border_radius'
+      value="{% if company.card_border_radius %}{{company.card_border_radius}}{% else %} 0px {% endif %}"
+      id = 'card_border_radius'
+   />
+</div>
+<div class="setting">
+   <label>{% trans 'Shadow' %}:</label>
+   <input 
+      type="text" 
+      class="settings__color settings__color__max"
+      name = 'card_box_shadow'
+      value="{{company.card_box_shadow}}"
+      id = 'card_box_shadow'
+   />
+</div>
+<div class="setting">
+   <label>{% trans 'Border' %}: </label>
+   <input 
+      type="text" 
+      class="settings__color settings__color__max"
+      name = 'card_border'
+      value="{{company.card_border}}"
+      id = 'card_border'
+   />
+</div>
+</div>

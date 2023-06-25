@@ -1,0 +1,94 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+<title>{% trans 'Admin panel' %}</title>
+{% endblock title %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<div class="page">
+    <div class="page__left">
+        <div class="page__left__header">
+            <h2>{% trans 'Cards' %} </h2>
+            <form class="page__left__header__interactive"  method="GET" action="{% url 'base:index' %}">
+                <!-- <input type="input" name="search_card" placeholder="search of cards..." /> -->
+                {% for field in companyForm %}
+                    {{field}}
+                {% endfor %}
+                <button class="material-symbols-sharp link" >
+                    manage_search
+                </button>
+                {% if request.user.is_superuser %}
+                    <a class="material-symbols-sharp link" href="{% url 'base:create_card' %}">
+                        design_services
+                    </a>
+                {% endif %}
+            </form>
+        </div>
+        <div class="page__left__cards">
+            {% if companies.count != 0 %}
+                {% for company in companies %}
+                <div class="company">
+                    <div class="company__info">
+                        <a href="{% url 'base:show_company' company.slug %}">{{ company.name }} - {{company.user.username}}</a>
+                    </div>
+                    <div class="company__buttons">
+                        <a href="{% url 'base:constructor' company.slug %}" class="link">
+                            <span class="material-symbols-sharp">
+                                edit_note
+                            </span>
+                        </a>
+                        <a href="{% url 'base:delete_company' company.slug %}" class="link">
+                            <span class="material-symbols-sharp">
+                                delete_sweep
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+               <div class="notfound">
+                {% trans 'Cards not found' %}
+               </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="page__right">
+        {% if request.user.is_superuser %}
+            <form class="page__left__header" method="GET" action="{% url 'base:index' %}">
+                <h2>{% trans 'Users' %}</h2>
+                {% for f in userForm %}
+                    {{f}}
+                {% endfor %}
+                <button class="material-symbols-sharp link" >
+                    manage_search
+                </button>
+            </form>
+            <div class="page__right__users">
+                {% if users.count != 0 %}
+                {% for user in users %}
+                <div class="company">
+                    <div class="company__info">
+                        <a href="">{{ user.username }}</a> - 
+                        <span href="">{{ user.email }}</span>
+                    </div>
+                    <div class="company__buttons">
+                        <a href="{% url 'base:delete_user' user.username %}" class="material-symbols-sharp link">
+                            delete_sweep
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+               <div class="notfound">
+                {% trans 'Cards not found' %}
+               </div>
+            {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div
+{% endblock content %}

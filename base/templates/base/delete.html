@@ -1,0 +1,22 @@
+{% include 'main.html' %}
+
+{% load static i18n %}
+
+{% block title %}
+<link rel="stylesheet" href="{% static 'css/delete.css' %}">
+<title>{% trans 'Delete user' %}</title>
+{% endblock title %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<div class="page">
+    <form class="page__form" method="POST">
+        <h3>{% trans 'Do you want to delete' %} <i>{% if type == 'company' %} {{user.slug}} {% else %} {{request.user.username}} {% endif %}</i>?</h3>
+        {% csrf_token %}
+        <div class="page__form__buttons">
+            <a href="/" class="btn">{% trans 'Return back' %}</a>
+            <button class="btn" >{% trans 'Delete' %}</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

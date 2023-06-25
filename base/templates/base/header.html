@@ -1,0 +1,27 @@
+{% load static i18n %}
+<header>
+    <p>{% trans 'Hi' %}, {{request.user.username}}!</p>
+    <a href="{% url 'base:index' %}" >{% trans 'Home' %}</a>
+    {% if request.user.is_superuser %}
+        <a href="/admin">{% trans 'Django Admin' %}</a>
+    {% endif %}
+    <a href="{% url 'base:settings' %}" >{% trans 'Settings' %}</a>
+    <a href="{% url 'base:sign_out' %}" >{% trans 'Sign Out' %}</a>
+    {% comment %} <select>
+        <option disabled selected>{% trans 'Select language' %}</option>
+    </select> {% endcomment %}
+
+    <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+        <select name="language" id="changeLanguage" >
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                    {{ language.name_local }} ({{ language.code }})
+                </option>
+            {% endfor %}
+        </select>
+     </form>
+</header>
