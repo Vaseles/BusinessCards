@@ -244,6 +244,17 @@
       z-index: 10000;
       color: white
    }   
+   .data__field__video {
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      max-height: 200px;
+      position: relative;
+   }
+   iframe {
+      width: 100%;
+      margin: 10px 0;
+   }
  </style>
 
  <div class="pre__card">
@@ -284,7 +295,10 @@
           </div>
        {% endif %}
        {% if company.link_on_video %}
-          <div class="data__field">
+          <div class="data__field data__field__video">
+            {% autoescape off %}
+               {{company.link_on_video}}
+            {% endautoescape %}
           </div>
        {% endif %}
        <button class="btn" id="save">{% trans 'Save' %}</button>

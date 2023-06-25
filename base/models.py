@@ -24,7 +24,7 @@ class Company(models.Model):
    ava = models.ImageField(upload_to='avatars', blank=True)
    location = models.CharField(max_length=164, blank=True)
    about = models.TextField(max_length=500, blank=True)
-   link_on_video = models.URLField(max_length=1000, blank=True)
+   link_on_video = models.TextField(blank=True)
 
    #STYLE
    background_color = models.CharField(max_length=10, default="#ffffff")
