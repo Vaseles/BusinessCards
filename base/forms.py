@@ -43,9 +43,10 @@ class CompanyUpdateForm(ModelForm):
    class Meta:
       model = Company
       fields = ['name', 
-                'title', 
+                'title',
                 'number', 
                 'email', 
+                'ava', 
                 'location',
                 'about',
                 'link_on_video']

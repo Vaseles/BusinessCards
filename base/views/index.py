@@ -253,7 +253,7 @@ def add_more_fields(request, slug:str):
         form = CompanyUpdateForm(instance=company)
         
         if request.method == 'POST':
-            form = CompanyUpdateForm(request.POST, instance=company)
+            form = CompanyUpdateForm(request.POST, request.FILES, instance=company)
             if form.is_valid():
                 form.save()
                 return redirect('base:constructor', slug=slug)
