@@ -141,6 +141,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en'
 
+
+gettext = lambda s: s
+LANGUAGES = [
+    ('en', gettext('English')),
+    ('ru', gettext('Russian')),
+    ('kk', gettext('Kazakh')),
+]
+
+MODELTRANSLATION_LANGUAGES = ( 'en', 'ru', 'kk')
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -169,17 +183,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-gettext = lambda s: s
-LANGUAGES = [
-    ('en', gettext('English')),
-    ('ru', gettext('Russian')),
-    ('kk', gettext('Kazakh')),
-]
-
-MODELTRANSLATION_LANGUAGES = ( 'en', 'ru', 'kk')
-
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
 
