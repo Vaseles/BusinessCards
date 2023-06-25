@@ -161,16 +161,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-gettext = lambda s: s
-LANGUAGES = [
-    ('en', gettext('English')),
-    ('ru', gettext('Russian')),
-    ('kk', gettext('Kazakh')),
-]
+# gettext = lambda s: s
+# LANGUAGES = [
+#     ('en', gettext('English')),
+#     ('ru', gettext('Russian')),
+#     ('kk', gettext('Kazakh')),
+# ]
 
-MODELTRANSLATION_LANGUAGES = ( 'en', 'ru', 'kk')
+# MODELTRANSLATION_LANGUAGES = ( 'en', 'ru', 'kk')
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-]
+# LOCALE_PATHS = [
+#     os.path.join(BASE_DIR, 'locale'),
+# ]
 
