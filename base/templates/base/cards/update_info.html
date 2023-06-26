@@ -10,7 +10,7 @@
 {% block content %}
 {% include 'base/header.html' %}
 <div class="page">
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <a class='btn' href='{% url "base:constructor" company.slug %}'>{% trans 'Constructor' %}</a>
         {% if type == 'add_more_fields' %}
             <a class='btn' href='{% url "base:social_medias" company.slug %}'>{% trans 'Add social medias' %}</a>
