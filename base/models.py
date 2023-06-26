@@ -23,7 +23,7 @@ class Company(models.Model):
    email = models.EmailField(max_length=100, blank=True)
    ava = models.ImageField(upload_to='avatars', blank=True)
    location = models.CharField(max_length=164, blank=True)
-   about = models.TextField(max_length=500, blank=True)
+   about = models.TextField(blank=True)
    link_on_video = models.TextField(blank=True)
 
    #STYLE

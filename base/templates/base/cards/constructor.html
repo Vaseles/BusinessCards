@@ -165,10 +165,10 @@
               box-shadow: {{company.card_text_box_shadow}};
             {% endif %}
             {% if company.card_text_border_bottom %}
-              border-bottom: {{company.card_text_border_bottom}}
+              border-bottom: {{company.card_text_border_bottom}};
             {% endif %}
             {% if company.card_text_border %}
-               border: {{company.card_text_border}}
+               border: {{company.card_text_border}};
             {% endif %}
          }
 
@@ -267,10 +267,11 @@
          }  
          textarea {
             color: {% if company.card_text_color %}
-               {{company.card_text_color}}
+               {{company.card_text_color}};
                {% else %}
-               {{company.color}}
+               {{company.color}};
                {% endif %}
+            min-height:300px;  
          }
 
          
