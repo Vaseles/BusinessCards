@@ -294,11 +294,9 @@
              <p class="text">{{company.about}}</p>
           </div>
        {% endif %}
-       {% if company.link_on_video %}
+       {% if link_on_video %}
           <div class="data__field data__field__video">
-            {% autoescape off %}
-               {{company.link_on_video}}
-            {% endautoescape %}
+            <iframe width="560" height="315" src="{{link_on_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
        {% endif %}
        <button class="btn" id="save">{% trans 'Save' %}</button>

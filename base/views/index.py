@@ -12,10 +12,18 @@ from ..forms import UserSearchForm, CompanySearchForm, CompanyUpdateForm, Compan
 def show_company(request, slug: str): 
    company = Company.objects.get(slug=slug)
    company_icons = CompanySocialMedia.objects.get(contact=company)
+   url = ''
+   
+   if company.link_on_video != '' or None:
+    url = company.link_on_video.split('/')
+    url[2] = 'www.youtube.com/embed'
+    url = '/'.join(url)
+    print('_____________________', url)
 
    context = {
       'company': company, 
       'icons': company_icons,
+      'link_on_video': url,
    }
    return render(request, 'base/cards/view.html', context)
 
