@@ -4,16 +4,16 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/create.css' %}">
-<title>{% trans 'Show User Data' %}</title>
+<title>{% trans 'Показать данные пользователя' %}</title>
 {% endblock title %}
 
 {% block content %}
 {% include 'base/header.html' %}
 <div class="page">
     <form>
-        <p>{% trans 'Username' %}: {{username}}</p>
-        <p>{% trans 'Password' %}: {{password}}</p>
-        <a class='btn' href='/'>{% trans 'Home page' %}</a>
+        <p>{% trans 'Имя' %}: {{username}}</p>
+        <p>{% trans 'Пароль' %}: {{password}}</p>
+        <a class='btn' href='/'>{% trans 'Домой' %}</a>
     </form>
 </div
 {% endblock content %}

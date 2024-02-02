@@ -4,30 +4,143 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/update_info.css' %}">
-<title>{% trans 'Update Card' %}</title>
+<link rel="stylesheet" href="{% static 'css/translation_fields.css' %}">
+
+<title>{% trans 'Обновить главную информацию' %}</title>
 {% endblock title %}
 
 {% block content %}
 {% include 'base/header.html' %}
 <div class="page">
     <form action="" method="POST" enctype="multipart/form-data">
-        <a class='btn' href='{% url "base:constructor" company.slug %}'>{% trans 'Constructor' %}</a>
+        <a class='btn' href='{% url "base:constructor" company.slug %}'>{% trans 'Конструктор' %}</a>
         {% if type == 'add_more_fields' %}
-            <a class='btn' href='{% url "base:social_medias" company.slug %}'>{% trans 'Add social medias' %}</a>
+            <a class='btn' href='{% url "base:social_medias" company.slug %}'>{% trans 'Обновить социальные сети' %}</a>
         {% else %}
-            <a class='btn' href='{% url "base:add_more_fields" company.slug %}'>{% trans 'Update Info' %}</a>
+            <a class='btn' href='{% url "base:add_more_fields" company.slug %}'>{% trans 'Обновить главную информацию' %}</a>
         {% endif %}
         {% csrf_token %}
 
         {% if type == 'add_more_fields' %}
-            <h2>{% trans 'Update Card' %}</h2>
+            <h2>{% trans 'Обновить главную информацию' %}</h2>
+
+            <div class="form__translate">
+                <div class="form__translate__buttons">
+                    <button type="button" class="translate__button__selected">Ru</button>
+                    <button type="button" class="">Kk</button>
+                    <button type="button" class="">En</button>
+                </div>
+                <div class="form__translate__fields">
+                    <div class="form__component translate__field__selected">
+                        <label>{% trans 'Название визитки на русском' %}:</label>
+                        {{ form.name_ru }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'Название визитки на казахском' %}:</label>
+                        {{ form.name_kk }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'Название визитки на английском' %}:</label>
+                        {{ form.name_en }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__translate">
+                <div class="form__translate__buttons">
+                    <button type="button" class="translate__button__selected">Ru</button>
+                    <button type="button" class="">Kk</button>
+                    <button type="button" class="">En</button>
+                </div>
+                <div class="form__translate__fields">
+                    <div class="form__component translate__field__selected">
+                        <label>{% trans 'ФИО на русском' %}:</label>
+                        {{ form.title_ru }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'ФИО на казахском' %}:</label>
+                        {{ form.title_kk }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'ФИО визитки на английском' %}:</label>
+                        {{ form.title_en }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__component">
+                <label>{% trans 'Номер телефона' %}:</label>
+                {{ form.number }}
+            </div>
+
+            <div class="form__component">
+                <label>Email:</label>
+                {{ form.email }}
+            </div>
+
+             <div class="form__component">
+                <label>{% trans 'Картинка' %}:</label>
+                {{ form.ava }}
+            </div>
+
+             <div class="form__translate">
+                <div class="form__translate__buttons">
+                    <button type="button" class="translate__button__selected">Ru</button>
+                    <button type="button" class="">Kk</button>
+                    <button type="button" class="">En</button>
+                </div>
+                <div class="form__translate__fields">
+                    <div class="form__component translate__field__selected">
+                        <label>{% trans 'Местоположение на русском' %}:</label>
+                        {{ form.location_ru }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'Местоположение на казахском' %}:</label>
+                        {{ form.location_kk }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'Местоположение на английском' %}:</label>
+                        {{ form.location_en }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__translate">
+                <div class="form__translate__buttons">
+                    <button type="button" class="translate__button__selected">Ru</button>
+                    <button type="button" class="">Kk</button>
+                    <button type="button" class="">En</button>
+                </div>
+                <div class="form__translate__fields">
+                    <div class="form__component translate__field__selected">
+                        <label>{% trans 'Описание на русском' %}:</label>
+                        {{ form.about_ru }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'Описание на казахском' %}:</label>
+                        {{ form.about_kk }}
+                    </div>
+                    <div class="form__component">
+                        <label>{% trans 'Описание на английском' %}:</label>
+                        {{ form.about_en }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form__component">
+                <label>{% trans 'Ссылка на видео в ютуб' %}:</label>
+                {{ form.link_on_video }}
+            </div>
+
         {% else %}
-            <h2>{% trans 'Update Social Medias' %}</h2>
+            <h2>{% trans 'Обновить социальные сети' %}</h2>
+
+            {{form.as_p}}
         {% endif %}
 
-        {{form.as_p}}
-
-        <button class="btn">{% trans 'Save' %}</button>
+        <button class="btn">{% trans 'Сохранить' %}</button>
     </form>
-</div
+</div>
+
+<script src="{% static '/js/translate_fields.js' %}"></script>
 {% endblock content %}

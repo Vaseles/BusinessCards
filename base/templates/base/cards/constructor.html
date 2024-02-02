@@ -3,7 +3,7 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/constructor.css' %}">
-<title>{% trans 'Constructor' %}</title>
+<title>{% trans 'Конструктор' %}</title>
 {% endblock title %}
 
 {% block content %}
@@ -271,7 +271,12 @@
                {% else %}
                {{company.color}};
                {% endif %}
-            min-height:300px;  
+            min-height:140px;
+            max-height:200px;
+
+            max-width: 100%;
+            min-width: 100%;
+            width: 100%;
          }
 
          
@@ -281,40 +286,40 @@
          <div class="card" title="карточка">
             <div class="card__item">
             <div class="data__image">
-               <img src="/{{company.ava}}" alt="" class="data__image__img" title="логотип">
-               <h1 class="data__h2" title="Название">{{company.name}}</h1>
+               <img src="/{{company.ava}}" alt="" class="data__image__img" title="{% trans 'Логотип' %}">
+               <h1 class="data__h2" title="{% trans 'Название' %}">{{company.name}}</h1>
             </div>
             {% if company.title %}
                <div class="data__field">
-                  <label for="" class="label" title="Поле пометки">Заголовок: </label>
-                  <input  class="text" title="title" name='title' value="{{company.title}}"/>
+                  <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'ФИО'  %}: </label>
+                  <input  class="text" title="title" name='{% trans 'Фио' %}' value="{{company.title}}"/>
                </div>
             {% endif %}
             {% if company.location %}
                <div class="data__field">
-                  <label for="" class="label" title="Поле пометки">Место: </label>
-                  <input  class="text" name="location" title='location' value="{{company.location}}" />
+                  <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'Место' %}: </label>
+                  <input  class="text" name="location" title="{% trans 'Локация' %}" value="{{company.location}}" />
                </div>
             {% endif %}
             {% if company.number %}
                <div class="data__field">
-                  <label for="" class="label" title="Поле пометки">Номер: </label>
-                  <input class="text" name="number" title="number" value="{{company.number}}" />
+                  <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'Номер' %}: </label>
+                  <input class="text" name="number" title="{% trans 'Номер' %}" value="{{company.number}}" />
                </div>
             {% endif %}
             {% if company.email %}
                <div class="data__field">
-                  <label for="" class="label" title="Поле пометки">Почта: </label>
-                  <input class="text" name="email"  value="{{company.email}}">
+                  <label for="" class="label" title="{% trans 'Поле пометки' %}">Email: </label>
+                  <input class="text" name="Email"  value="{{company.email}}">
                </div>
             {% endif %}
             {% if company.about %}
                <div class="data__field">
-                  <label for="" class="label" title="Поле пометки">Об: </label>
-                  <textarea class="text" name="about">{{company.about}}</textarea>
+                  <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'Об' %}: </label>
+                  <textarea class="text" name="{% trans 'Об' %}">{{company.about}}</textarea>
                </div>
             {% endif %}
-            <button type="button" class="btn" id="save" title="кнопка">Сохранить</button>
+            <button type="button" class="btn" id="save" title="{% trans 'Кнопка' %}">{% trans 'Сохранить' %}</button>
             {% include "base/cards/components/icons.html" %}
 
             <div class="data__icons">
@@ -425,7 +430,7 @@
                <a class="fa-solid fa-map icon"></a>
                {% endif%}
             </div>
-            <a class='add__more' href='{% url "base:add_more_fields" company.slug %}'>{% trans 'Add More' %}</a>
+            <a class='add__more' href='{% url "base:add_more_fields" company.slug %}'>{% trans 'Добавить больше' %}</a>
          </div>
       </div>
    </div>
@@ -433,9 +438,9 @@
    <div class="constructor__right" >
 
       <div class="constructor__right__buttons">
-         <a href="{% url 'base:index' %}" class="link"><i class="fa-solid fa-arrow-left-long"></i>{% trans 'Exit' %}</a>
-         <a class="button constructor__btn" href='{% url "base:show_company" company.slug %}'>{% trans 'Look' %}</a>
-         <button class="button constructor__btn">{% trans 'Save' %}</button>
+         <a href="{% url 'base:index' %}" class="link"><i class="fa-solid fa-arrow-left-long"></i>{% trans 'Закрыть' %}</a>
+         <a class="button constructor__btn" href='{% url "base:show_company" company.slug %}'>{% trans 'Посмотреть' %}</a>
+         <button class="button constructor__btn">{% trans 'Сохранить' %}</button>
       </div>
 
       <div class="constructor__right__footer">
@@ -451,9 +456,9 @@
       {% include "base/cards/components/constructor__label.html" %}
 
       <div class="constructor__right__menu constructor__icon">
-         <h2>{% trans 'Icons' %}</h2>
+         <h2>{% trans 'Иконки' %}</h2>
          <div class="setting">
-            <label>{% trans 'Icon color' %}:  </label>
+            <label>{% trans 'Цвет иконок' %}:  </label>
             <input 
                type="color" 
                class="settings__color"
@@ -463,17 +468,18 @@
             />
          </div>
          <div class="setting">
-            <label>{% trans 'Size' %}:</label>
+            <label>{% trans 'Размер' %}:</label>
             <input 
                type="text" 
                class="settings__color"
                name = 'font_icon_size'
+               placeholder="18px"
                value="{{company.font_icon_size}}"
                id = 'font_icon_size'
             />
          </div>
          <div class="setting">
-            <label>{% trans 'Hover color' %}:</label>
+            <label>{% trans 'Цвет при наведении' %}:</label>
             <input 
                type="color" 
                class="settings__color"

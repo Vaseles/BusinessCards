@@ -8,6 +8,30 @@
 {% endblock title %}
 
 {% block content %}
+
+<form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      <select name="language" id="changeLanguage" class='change__language' >
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                      selected{% endif %}>
+                  {% comment %} {{ language.name_local }}  {% endcomment %}
+                  {{ language.code }}
+              </option>
+          {% endfor %}
+      </select>
+      <!-- <button type="submit" class="btn">{% trans 'Translate' %}</button> -->
+   </form>
+
+<script>
+    document.getElementById("changeLanguage").addEventListener("change", function() {
+        document.getElementById("LanguageForm").submit();
+      });
+</script>
+
 <style>
     .pre__card {
        display: flex;
@@ -266,19 +290,19 @@
        </div>
        {% if company.title %}
           <div class="data__field">
-             <label for="">{% trans 'Header' %}: </label>
+             <label for="">{% trans 'ФИО' %}: </label>
              <p  class="text"> {{company.title}}</p>
           </div>
        {% endif %}
        {% if company.location %}
           <div class="data__field">
-             <label for="">{% trans 'Place' %}: </label>
+             <label for="">{% trans 'Место' %}: </label>
              <p  class="text"> {{company.location}}</p>
           </div>
        {% endif %}
        {% if company.number %}
           <div class="data__field">
-             <label for="">{% trans 'Number' %}: </label>
+             <label for="">{% trans 'Номер' %}: </label>
              <p  class="text"> {{company.number}}</p>
           </div>
        {% endif %}
@@ -290,7 +314,7 @@
        {% endif %}
        {% if company.about %}
           <div class="data__field">
-             <label for="">{% trans 'About' %}: </label>
+             <label for="">{% trans 'Подробная информация ' %}: </label>
              <p class="text">{{company.about}}</p>
           </div>
        {% endif %}
@@ -299,7 +323,7 @@
             <iframe width="560" height="315" src="{{link_on_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
        {% endif %}
-       <button class="btn" id="save">{% trans 'Save' %}</button>
+       <button class="btn" id="save">{% trans 'Сохранить' %}</button>
  
        <div class="data__icons">
           {% if  icons.facebook %}
@@ -413,7 +437,7 @@
     </div>
     
     <div class="copy_message">
-    {% trans 'Copy' %}!
+    {% trans 'Скопировано' %}!
     </div>
  </div>
 

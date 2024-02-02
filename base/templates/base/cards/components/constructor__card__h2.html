@@ -1,36 +1,38 @@
 {% load static i18n %}
 <div class="constructor__right__menu constructor__card__h2">
-   <h2>{% trans 'Company name' %}</h2>
+   <h2>{% trans 'Название компании' %}</h2>
    <input 
       type="text"
       id="constructor_card_change_h2" 
       class="input"
       name="name" 
-      placeholder="Название..." 
+      placeholder="{% trans 'Название' %}..."
       value="{{company.name}}"
    >
    <div class="setting">
-      <label>{% trans 'Text size' %}: </label>
+      <label>{% trans 'Размер текста' %}: </label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_title_font_size'
-         value="{{company.card_title_font_size}}"
+         placeholder="22px"
+         value="{% if company.card_title_font_size and company.card_title_font_size != 'none' %}{{company.card_title_font_size}}{% endif %}"
          id = 'card_title_font_size'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Font' %}:</label>
+      <label>{% trans 'Шрифт' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_title_font_family'
-         value="{{company.card_title_font_family}}"
+         placeholder="Sans, Sans-serif, Monospace"
+         value="{% if company.card_title_font_family and company.card_title_font_family != 'none' %}{{company.card_title_font_family}}{% endif %}"
          id = 'card_title_font_family'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Font' %}: </label>
+      <label>{% trans 'Цвет' %}: </label>
       <input 
          type="color" 
          class="settings__color"
@@ -40,12 +42,13 @@
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Font Weight' %}: </label>
+      <label>{% trans 'Толщина шрифта' %}: </label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_title_font_weight'
-         value="{{company.card_title_font_weight}}"
+         placeholder="400"
+         value="{% if company.card_title_font_weight and company.card_title_font_weight != 'none' %}{{company.card_title_font_weight}}{% endif %}"
          id = 'card_title_font_weight'
       />
    </div>

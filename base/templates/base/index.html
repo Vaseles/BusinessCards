@@ -4,7 +4,7 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/admin.css' %}">
-<title>{% trans 'Admin panel' %}</title>
+<title>{% trans 'Админ панель' %}</title>
 {% endblock title %}
 
 {% block content %}
@@ -12,12 +12,10 @@
 <div class="page">
     <div class="page__left">
         <div class="page__left__header">
-            <h2>{% trans 'Cards' %} </h2>
+            <h2>{% trans 'Визитки' %} </h2>
             <form class="page__left__header__interactive"  method="GET" action="{% url 'base:index' %}">
-                <!-- <input type="input" name="search_card" placeholder="search of cards..." /> -->
-                {% for field in companyForm %}
-                    {{field}}
-                {% endfor %}
+                <input type="hidden" name="search_type" value="CompanySearch" />
+                <input type="search" name="query" placeholder="{% trans 'Поиск визиток' %}" />
                 <button class="material-symbols-sharp link" >
                     manage_search
                 </button>
@@ -51,7 +49,7 @@
                 {% endfor %}
             {% else %}
                <div class="notfound">
-                {% trans 'Cards not found' %}
+                {% trans 'Визитки не найдены' %}
                </div>
             {% endif %}
         </div>
@@ -59,7 +57,7 @@
     <div class="page__right">
         {% if request.user.is_superuser %}
             <form class="page__left__header" method="GET" action="{% url 'base:index' %}">
-                <h2>{% trans 'Users' %}</h2>
+                <h2>{% trans 'Пользователи' %}</h2>
                 {% for f in userForm %}
                     {{f}}
                 {% endfor %}
@@ -84,7 +82,7 @@
                 {% endfor %}
             {% else %}
                <div class="notfound">
-                {% trans 'Cards not found' %}
+                {% trans 'Пользователи не найдены' %}
                </div>
             {% endif %}
             </div>

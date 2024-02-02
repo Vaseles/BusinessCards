@@ -1,14 +1,15 @@
 {% load static i18n %}
 <header>
-    <p>{% trans 'Hi' %}, {{request.user.username}}!</p>
-    <a href="{% url 'base:index' %}" >{% trans 'Home' %}</a>
-    <a href="{% url 'base:settings' %}" >{% trans 'Settings' %}</a>
-    <a href="{% url 'base:sign_out' %}" >{% trans 'Sign Out' %}</a>
+    <p>{% trans 'Привет' %}, {{request.user.username}}!</p>
+    <a href="{% url 'base:index' %}" >{% trans 'Домой' %}</a>
+    <a href="{% url 'base:settings' %}" >{% trans 'Настройки' %}</a>
+    <a href="{% url 'base:sign_out' %}" >{% trans 'Выйти' %}</a>
     {% comment %} <select>
-        <option disabled selected>{% trans 'Select language' %}</option>
+        <option disabled selected>{% trans 'Выберите язык' %}</option>
     </select> {% endcomment %}
 
-    <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}
+    <form action="{% url 'set_language' %}" method="post" id="LanguageForm">
+        {% csrf_token %}
         <input name="next" type="hidden" value="{{ redirect_to }}">
         <select name="language" id="changeLanguage" >
             {% get_current_language as LANGUAGE_CODE %}
@@ -22,4 +23,9 @@
         </select>
      </form>
 </header>
-<script src='{% static "js/header.js" %}'></script>
+
+<script>
+    document.getElementById("changeLanguage").addEventListener("change", function() {
+        document.getElementById("LanguageForm").submit();
+      });
+</script>

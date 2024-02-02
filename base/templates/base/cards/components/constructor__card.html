@@ -1,8 +1,8 @@
 {% load static i18n %}
 <div class="constructor__right__menu constructor__card">
-   <h2>{% trans 'Card' %}</h2>
+   <h2>{% trans 'Карточка' %}</h2>
    <div class="setting">
-      <label>{% trans 'Background color' %}:  </label>
+      <label>{% trans 'Цвет фона' %}:  </label>
       <input 
          type="color" 
          class="settings__color"
@@ -12,32 +12,35 @@
       />
 </div>
 <div class="setting">
-   <label>{% trans 'Rounding' %}: </label>
+   <label>{% trans 'Закругление' %}: </label>
    <input 
       type="text" 
       class="settings__color"
       name = 'card_border_radius'
+      placeholder="10px"
       value="{% if company.card_border_radius %}{{company.card_border_radius}}{% else %} 0px {% endif %}"
       id = 'card_border_radius'
    />
 </div>
 <div class="setting">
-   <label>{% trans 'Shadow' %}:</label>
+   <label>{% trans 'Тень' %}:</label>
    <input 
       type="text" 
       class="settings__color settings__color__max"
       name = 'card_box_shadow'
-      value="{{company.card_box_shadow}}"
+      placeholder="0 0 10px 1px rgb(20,20,20,.1)"
+      value="{% if company.card_box_shadow and company.card_box_shadow != 'none' %} {{ company.card_box_shadow }} {% endif %}"
       id = 'card_box_shadow'
    />
 </div>
 <div class="setting">
-   <label>{% trans 'Border' %}: </label>
+   <label>{% trans 'Рамка' %}: </label>
    <input 
       type="text" 
       class="settings__color settings__color__max"
       name = 'card_border'
-      value="{{company.card_border}}"
+      placeholder="2px solid rgb(20,20,20,1)"
+      value="{% if company.card_border and company.card_border != 'none' %}{{company.card_border}}{% endif %}"
       id = 'card_border'
    />
 </div>

@@ -5,7 +5,7 @@
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/create.css' %}">
 <link rel="stylesheet" href="{% static 'css/settings.css' %}">
-<title>{% trans 'Settings' %}</title>
+<title>{% trans 'Настройки' %}</title>
 {% endblock title %}
 
 {% block content %}
@@ -13,34 +13,34 @@
 <div class="page">
     <form action="" method="POST">
         {% csrf_token %}
-        <h2>{% trans 'Settings' %}</h2>
+        <h2>{% trans 'Настройки' %}</h2>
         <input 
             type="text" 
             name="username" 
-            placeholder="{% trans 'Enter username...' %}" 
+            placeholder="{% trans 'Имя...' %}"
             value="{{request.user.username}}"
             required
         >
         <input 
             type="text" 
             name="email" 
-            placeholder="{% trans 'Enter email...' %}"
+            placeholder="{% trans 'Email...' %}"
             value="{{request.user.email}}"
         >
         <input 
             type="password" 
             name="password" 
-            placeholder="{% trans 'Change password...' %}" 
+            placeholder="{% trans 'Новый пароль...' %}"
         >
         <input 
             type="password" 
             name="password_confirmation" 
-            placeholder="{% trans 'Confirm your password...' %}" 
+            placeholder="{% trans 'Подтвердить пароль...' %}"
         >
 
         <div class="buttons">
-            <button class="btn">{% trans 'Save' %}</button>
-            <a class="btn" href="/">{% trans 'Go away' %}</a>
+            <button class="btn">{% trans 'Сохранить' %}</button>
+            <a class="btn" href="/">{% trans 'Уйти' %}</a>
         </div>
     </form>
 </div>

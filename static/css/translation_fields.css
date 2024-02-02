@@ -1,0 +1,51 @@
+.form__translate {
+    width: 100%;
+}
+.form__translate__buttons {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+.form__translate__buttons button {
+    font-size: 18px;
+    /*color: #202020;
+    border: 1px solid rgb(20,20,20,1);*/
+    background-color: #202020;
+    color: white;
+    padding: 6px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.form__translate__buttons button:first-child {
+    border-radius: 4px 0 0 4px;
+}
+.form__translate__buttons button:last-child {
+    border-radius: 0 4px 4px 0;
+}
+.form__translate__buttons button:hover {
+    background-color: white;
+    color: #202020;
+}
+.form__component {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    margin: 6px 0;
+}
+.form__translate__fields .form__component {
+    display: none;
+}
+.form__component label {
+    font-size: 14px;
+    color: rgb(20,20,20,.6);
+}
+.translate__button__selected {
+    background-color: #8ebbff !important;
+    color: white !important;
+}
+.translate__field__selected {
+    display: flex !important;
+}

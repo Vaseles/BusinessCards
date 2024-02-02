@@ -4,7 +4,7 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/auth.css' %}">
-<title>{% trans 'Sign In' %}</title>
+<title>{% trans 'Вход' %}</title>
 {% endblock title %}
 
 {% block content %}
@@ -12,21 +12,21 @@
     <div class="page__left">
         <form action="" method="POST">
             {%  csrf_token %}
-            <h1>{% trans 'Sign In' %}</h1>
-            <p>{% trans 'New' %}? <a href="tel: +77052508271">{% trans 'Write to Musa' %}(+7 705 250 8271)</a></p>
+            <h1>{% trans 'Вход' %}</h1>
+            <p>{% trans 'Новичок' %}? <a href="tel: +77052508271">{% trans 'Напиши Мусе' %}: (+7 705 250 8271)</a></p>
             <input 
                 type="text" 
-                placeholder="{% trans 'Your username' %}"
+                placeholder="{% trans 'Ваше имя' %}"
                 name="username"
                 required
             />
             <input 
                 type="password" 
-                placeholder="{% trans 'Your password' %}"
+                placeholder="{% trans 'Ваш пароль' %}"
                 name="password"
                 required
             />
-            <button class="btn">{% trans 'Continue' %}</button>
+            <button class="btn">{% trans 'Продолжить' %}</button>
         </form>
     </div>
     <div class="page__right">
@@ -34,7 +34,7 @@
         <div class="page__slider">
             <div class="page__slider__content">
                 <div class="page_slider__left">
-                    <p id="sliderTitle">{% trans 'Quickly create a business card in your style!' %}</p>
+                    <p id="sliderTitle">{% trans 'Создавайте визитки быстро и в своем стиле!' %}</p>
                     <span id="sliderCounts">01 _______ 03</span>
                 </div>
                 <div class="page__slider__right">

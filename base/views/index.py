@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
+from django.db.models import Q
 
 from ..models import Company, CompanySocialMedia
-from ..forms import UserSearchForm, CompanySearchForm, CompanyUpdateForm, CompanySocialMediaForm
+from ..forms import CompanyUpdateForm, CompanySocialMediaForm
 
 
 # ! /company/:slug - show company card
@@ -33,33 +34,32 @@ def index(request):
     
     if request.user.is_superuser:
         companies = Company.objects.all()
-        
-    userForm = UserSearchForm(request.GET)
-    companyForm = CompanySearchForm(request.GET)
-    
-    if companyForm.is_valid():
-        if request.user.is_superuser:
-            companies = Company.objects.filter(
-            name__icontains=companyForm.cleaned_data['query'])
-        else:
-            companies = Company.objects.filter(
-            name__icontains=companyForm.cleaned_data['query']).filter(
-                user=request.user)
+
+    search_type = request.GET.get('search_type')
+    search = request.GET.get('query')
+
+    if search_type == 'CompanySearch':
+        companies = Company.objects.filter(
+            Q(user__username__icontains=search) |
+            Q(name_en__icontains=search) |
+            Q(name_ru__icontains=search) |
+            Q(name_kk__icontains=search)
+        ).order_by('-updated')
+
+        if not request.user.is_superuser:
+            companies = companies.filter(user=request.user)
     
     users = []
     
     if request.user.is_superuser:
         users = User.objects.all()
-        
-        if userForm.is_valid():
-            users = User.objects.filter(username__icontains=userForm.cleaned_data['query'])
-    
+
+    #     if userForm.is_valid():
+    #         users = User.objects.filter(username__icontains=userForm.cleaned_data['query'])
+    #
     context = {
         'companies': companies,
         'users': users,
-        
-        'userForm': userForm,
-        'companyForm': companyForm,
     }
     return render(request, 'base/index.html', context)
 

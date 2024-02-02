@@ -1,0 +1,13 @@
+#LanguageForm {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 100;
+}
+#LanguageForm select {
+    border-radius: 6px;
+    border: 2px solid #202020;
+    font-weight: bold;
+    box-shadow: 0 0 6px 1px rgb(20,20,20,.1);
+    cursor: pointer;
+}

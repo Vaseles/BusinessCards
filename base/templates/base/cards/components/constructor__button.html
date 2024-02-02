@@ -1,9 +1,9 @@
 {% load static i18n %}
 <div class="constructor__right__menu constructor__button">
-   <h2>{% trans 'Button' %}</h2>
+   <h2>{% trans 'Кнопка' %}</h2>
    
    <div class="setting">
-      <label>{% trans 'Background color' %}:</label>
+      <label>{% trans 'Цвет фона' %}:</label>
       <input 
          type="color" 
          class="settings__color"
@@ -13,7 +13,7 @@
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Text color' %}:</label>
+      <label>{% trans 'Цвет текста' %}:</label>
       <input 
          type="color" 
          class="settings__color"
@@ -23,28 +23,30 @@
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Rounding' %}:</label>
+      <label>{% trans 'Закругление' %}:</label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_button_border_radius'
-         value="{{company.card_button_border_radius}}"
+         placeholder="10px"
+         value="{% if company.card_button_border_radius and company.card_button_border_radius != 'none' %}{{company.card_button_border_radius}}{% endif %}"
          id = 'card_button_border_radius'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Shadow' %}:</label>
+      <label>{% trans 'Тень' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_button_box_shadow'
-         value="{{company.card_button_box_shadow}}"
+         placeholder="0 0 10px 1px rgb(20,20,20,.1)"
+         value="{% if company.card_button_box_shadow and company.card_button_box_shadow != 'none' %}{{company.card_button_box_shadow}}{% endif %}"
          id = 'card_button_box_shadow'
       />
    </div>
-   <h2>{% trans 'Hover button' %}</h2>
+   <h2>{% trans 'При наведении на кнопку' %}</h2>
    <div class="setting">
-      <label>{% trans 'Background color' %}:</label>
+      <label>{% trans 'Цвет фона' %}:</label>
       <input 
          type="color" 
          class="settings__color"
@@ -54,7 +56,7 @@
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Text color' %}:</label>
+      <label>{% trans 'Цвет текста' %}:</label>
       <input 
          type="color" 
          class="settings__color"
@@ -64,22 +66,24 @@
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Rounding' %}:</label>
+      <label>{% trans 'Закругление' %}:</label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_button_border_radius_hover'
-         value="{{company.card_button_border_radius_hover}}"
+         placeholder="10px"
+         value="{% if company.card_button_border_radius_hover and company.card_button_border_radius_hover != 'none' %}{{company.card_button_border_radius_hover}}{% endif %}"
          id = 'card_button_border_radius_hover'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Shadow' %}:</label>
+      <label>{% trans 'Тень' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_button_box_shadow_hover'
-         value="{{company.card_button_box_shadow_hover}}"
+         placeholder="0 0 10px 1px rgb(20,20,20,.1)"
+         value="{% if company.card_button_box_shadow_hover and company.card_button_box_shadow_hover != 'none' %}{{company.card_button_box_shadow_hover}}{% endif %}"
          id = 'card_button_box_shadow_hover'
       />
    </div>

@@ -1,28 +1,30 @@
 {% load static i18n %}
 <div class="constructor__right__menu constructor__text">
-   <h2>{% trans 'Text' %}</h2>
+   <h2>{% trans 'Текст' %}</h2>
    <div class="setting">
-      <label>{% trans 'Size' %}</label>
+      <label>{% trans 'Размер текста' %}</label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_text_font_size'
-         value="{{company.card_text_font_size}}"
+         placeholder="16px"
+         value="{% if company.card_text_font_size and company.card_text_font_size != 'none' %}{{company.card_text_font_size}}{% endif %}"
          id = 'card_text_font_size'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Family' %}:  </label>
+      <label>{% trans 'Шрифт' %}:  </label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_text_font_family'
-         value="{{company.card_text_font_family}}"
+         placeholder="Sans, Sans-serif, Monospace"
+         value="{% if company.card_text_font_family and company.card_text_font_family != 'none' %}{{company.card_text_font_family}}{% endif %}"
          id = 'card_text_font_family'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Color' %}:  </label>
+      <label>{% trans 'Цвет' %}:  </label>
       <input 
          type="color" 
          class="settings__color"
@@ -32,42 +34,46 @@
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Weight' %}:  </label>
+      <label>{% trans 'Толщина шрифта' %}:  </label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_text_font_weight'
-         value="{{company.card_text_font_weight}}"
+         placeholder="400"
+         value="{% if company.card_text_font_weight and company.card_text_font_weight != 'none' %} {{company.card_text_font_weight}}{% endif %}"
          id = 'card_text_font_weight'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Shadow' %}:</label>
+      <label>{% trans 'Тень' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_text_box_shadow'
-         value="{{company.card_text_box_shadow}}"
+         placeholder="0 0 10px 1px rgb(20,20,20,.1)"
+         value="{% if company.card_text_box_shadow and company.card_text_box_shadow != 'none' %}{{company.card_text_box_shadow}}{% endif %}"
          id = 'card_text_box_shadow'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Border Bottom' %}:</label>
+      <label>{% trans 'Рамка снизу' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_text_border_bottom'
-         value="{{company.card_text_border_bottom}}"
+         placeholder="2px solid rgb(20,20,20, .1)"
+         value="{% if company.company.card_text_border_bottom and company.card_text_border_bottom != 'none' %}{{company.card_text_border_bottom}}{% endif %}"
          id = 'card_text_border_bottom'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Border' %}:</label>
+      <label>{% trans 'Рамка' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_text_border'
-         value="{{company.card_text_border}}"
+         placeholder="2px solid rgb(20,20,20, .1)"
+         value="{% if company.card_text_border and company.card_text_border != 'none' %}{{company.card_text_border}}{% endif %}"
          id = 'card_text_border'
       />
    </div>

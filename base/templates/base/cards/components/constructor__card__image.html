@@ -1,6 +1,6 @@
 {% load static i18n %}
 <div class="constructor__right__menu constructor__card__image">
-   <h2>{% trans "Company's logo" %}</h2>
+   <h2>{% trans "Логотип компании" %}</h2>
    <div class='setting'>
       <input 
       type="file"
@@ -10,34 +10,37 @@
    >  
    </div>
    <div class='setting'>
-      <img src='/{{company.ava}}' class="input__ava" alt='ava' />
+      <img src='/{{company.ava}}' class="input__ava" alt='ava' style="object-fit: contain" />
    </div>
    <div class="setting">
-      <label>{% trans 'Rounding' %}: </label>
+      <label>{% trans 'Закругление' %}: </label>
       <input 
          type="text" 
          class="settings__color"
          name = 'card_image_border_radius'
-         value="{% if company.card_image_border_radius %}{{company.card_image_border_radius}}{% else %} 0px {% endif %}"
+         placeholder="10px"
+         value="{% if company.card_image_border_radius and company.card_image_border_radius != 'none' %}{{company.card_image_border_radius}}{% else %} 0px {% endif %}"
          id = 'card_image_border_radius'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Width' %}:</label>
+      <label>{% trans 'Ширина' %}:</label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_image_width'
+         placeholder="100px"
          value="{{company.card_image_width}}"
          id = 'card_image_width'
       />
    </div>
    <div class="setting">
-      <label>{% trans 'Height' %}: </label>
+      <label>{% trans 'Высота' %}: </label>
       <input 
          type="text" 
          class="settings__color settings__color__max"
          name = 'card_image_height'
+         placeholder="100px"
          value="{{company.card_image_height}}"
          id = 'card_image_height'
       />

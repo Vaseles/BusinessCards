@@ -4,7 +4,9 @@
 
 {% block title %}
 <link rel="stylesheet" href="{% static 'css/create.css' %}">
-<title>{% trans 'Create Card' %}</title>
+<link rel="stylesheet" href="{% static 'css/translation_fields.css' %}">
+
+<title>{% trans 'Создать карточку' %}</title>
 {% endblock title %}
 
 {% block content %}
@@ -12,7 +14,7 @@
 <div class="page">
     <form action="" method="POST">
         {% csrf_token %}
-        <h2>{% trans 'Create A New Card' %}</h2>
+        <h2>{% trans 'Создать новую карточку' %}</h2>
 
         <div class="form__translate">
             <div class="form__translate__buttons">
@@ -22,47 +24,25 @@
             </div>
             <div class="form__translate__fields">
                 <div class="form__component translate__field__selected">
-                    <label>Название визитки на русском:</label>
+                    <label>{% trans 'Название визитки на русском' %}:</label>
                     {{ form.name_ru }}
                 </div>
                 <div class="form__component">
-                    <label>Название визитки на казахском:</label>
+                    <label>{% trans 'Название визитки на казахском' %}:</label>
                     {{ form.name_kk }}
                 </div>
                 <div class="form__component">
-                    <label>Название визитки на английском:</label>
+                    <label>{% trans 'Название визитки на английском' %}:</label>
                     {{ form.name_en }}
                 </div>
             </div>
         </div>
 
-        <script>
-            const form__translate = document.querySelector('.form__translate')
-            const form__components = form__translate.querySelectorAll('.form__component')
-            const buttons = form__translate.querySelectorAll('button')
-
-            console.log(form__translate, form__components, buttons)
-
-            const reset_all_settings = () => {
-                console.log('reset_all_settings')
-                buttons.forEach(button => button.classList.remove('translate__button__selected'))
-                form__components.forEach(input => input.classList.remove('translate__field__selected'))
-            }
-
-            for (let i = 0; i < form__components.length; i++) {
-                buttons[i].addEventListener('click', () => {
-                    console.log('click')
-                    reset_all_settings()
-                    buttons[i].classList.add('translate__button__selected')
-                    form__components[i].classList.add('translate__field__selected')
-                })
-            }
-        </script>
 
         <div class="form__component">
-            <label>Автор визитки:</label>
+            <label>{% trans 'Автор визитки' %}:</label>
             <select name="user" required>
-                <option value="create_new">{% trans 'Create New' %}</option>
+                <option value="create_new">{% trans 'Создать новую' %}</option>
                 {% for user in users %}
                     <option value="{{ user.id }}">
                         {{ user.username }}
@@ -72,8 +52,10 @@
             </select>
         </div>
 
-            <button class="btn">{% trans 'Save' %}</button>
+            <button class="btn">{% trans 'Сохранить' %}</button>
 
     </form>
 </div>
+
+<script src="{% static '/js/translate_fields.js' %}"></script>
 {% endblock content %}
