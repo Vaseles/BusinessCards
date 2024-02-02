@@ -54,9 +54,12 @@ def index(request):
     if request.user.is_superuser:
         users = User.objects.all()
 
-    #     if userForm.is_valid():
-    #         users = User.objects.filter(username__icontains=userForm.cleaned_data['query'])
-    #
+        if search_type == 'UserSearch':
+            users = User.objects.filter(
+                Q(username__icontains=search) |
+                Q(email__icontains=search)
+            )
+
     context = {
         'companies': companies,
         'users': users,

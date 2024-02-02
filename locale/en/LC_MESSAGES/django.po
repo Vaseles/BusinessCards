@@ -16,118 +16,118 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: base/templates/base/cards/components/constructor__button.html:3
 #: base/templates/base/cards/constructor.html:322
 msgid "Кнопка"
-msgstr "Түйме"
+msgstr "Button"
 
 #: base/templates/base/cards/components/constructor__button.html:6
 #: base/templates/base/cards/components/constructor__button.html:49
 #: base/templates/base/cards/components/constructor__card.html:5
 #: base/templates/base/cards/components/constructor__pre__card.html:4
 msgid "Цвет фона"
-msgstr "Фон түсі"
+msgstr "Background colorz"
 
 #: base/templates/base/cards/components/constructor__button.html:16
 #: base/templates/base/cards/components/constructor__button.html:59
 msgid "Цвет текста"
-msgstr "Мәтін түсі"
+msgstr "Color"
 
 #: base/templates/base/cards/components/constructor__button.html:26
 #: base/templates/base/cards/components/constructor__button.html:69
 #: base/templates/base/cards/components/constructor__card.html:15
 #: base/templates/base/cards/components/constructor__card__image.html:16
 msgid "Закругление"
-msgstr "Дөңгелектеу"
+msgstr "Rounding"
 
 #: base/templates/base/cards/components/constructor__button.html:37
 #: base/templates/base/cards/components/constructor__button.html:80
 #: base/templates/base/cards/components/constructor__card.html:26
 #: base/templates/base/cards/components/constructor__text.html:48
 msgid "Тень"
-msgstr "Дөңгелектеу"
+msgstr "Shadow"
 
 #: base/templates/base/cards/components/constructor__button.html:47
 msgid "При наведении на кнопку"
-msgstr "Меңзерді түйменің үстіне апарған кезде"
+msgstr "Button hover"
 
 #: base/templates/base/cards/components/constructor__card.html:3
 msgid "Карточка"
-msgstr "Визит карточкасы"
+msgstr "Card"
 
 #: base/templates/base/cards/components/constructor__card.html:37
 #: base/templates/base/cards/components/constructor__text.html:70
 msgid "Рамка"
-msgstr "Шекара"
+msgstr "Border"
 
 #: base/templates/base/cards/components/constructor__card__h2.html:3
 msgid "Название компании"
-msgstr "Компанияның Аты"
+msgstr "Company name"
 
 #: base/templates/base/cards/components/constructor__card__h2.html:9
 #: base/templates/base/cards/constructor.html:290
 msgid "Название"
-msgstr "Аты"
+msgstr "Name"
 
 #: base/templates/base/cards/components/constructor__card__h2.html:13
 #: base/templates/base/cards/components/constructor__label.html:6
 #: base/templates/base/cards/components/constructor__text.html:5
 msgid "Размер текста"
-msgstr "Мәтін өлшемі"
+msgstr "Text size"
 
 #: base/templates/base/cards/components/constructor__card__h2.html:24
 #: base/templates/base/cards/components/constructor__label.html:17
 #: base/templates/base/cards/components/constructor__text.html:16
 msgid "Шрифт"
-msgstr "Қаріп"
+msgstr "Font"
 
 #: base/templates/base/cards/components/constructor__card__h2.html:35
 #: base/templates/base/cards/components/constructor__label.html:28
 #: base/templates/base/cards/components/constructor__pre__card.html:14
 #: base/templates/base/cards/components/constructor__text.html:27
 msgid "Цвет"
-msgstr "Түс"
+msgstr "Color"
 
 #: base/templates/base/cards/components/constructor__card__h2.html:45
 #: base/templates/base/cards/components/constructor__label.html:38
 #: base/templates/base/cards/components/constructor__text.html:37
 msgid "Толщина шрифта"
-msgstr "Қаріп қалыңдығы"
+msgstr "Font width"
 
 #: base/templates/base/cards/components/constructor__card__image.html:3
 msgid "Логотип компании"
-msgstr "Компанияның логотипі"
+msgstr "Company logo"
 
 #: base/templates/base/cards/components/constructor__card__image.html:27
 msgid "Ширина"
-msgstr "Ені"
+msgstr "Width"
 
 #: base/templates/base/cards/components/constructor__card__image.html:38
 msgid "Высота"
-msgstr "Биіктігі"
+msgstr "Height"
 
 #: base/templates/base/cards/components/constructor__label.html:3
 msgid "Поле метки"
-msgstr "Белгі өрісі"
+msgstr "Label"
 
 #: base/templates/base/cards/components/constructor__text.html:3
 msgid "Текст"
-msgstr "Мәтін"
+msgstr "Text"
 
 #: base/templates/base/cards/components/constructor__text.html:59
 msgid "Рамка снизу"
-msgstr "Төменгі жақтау"
+msgstr "Border bottom"
 
 #: base/templates/base/cards/constructor.html:6
 #: base/templates/base/cards/update_info.html:16
 msgid "Конструктор"
-msgstr "Конструктор"
+msgstr "Constructor"
 
 #: base/templates/base/cards/constructor.html:289
 msgid "Логотип"
-msgstr "Логотип"
+msgstr "Logo"
 
 #: base/templates/base/cards/constructor.html:294
 #: base/templates/base/cards/constructor.html:300
@@ -135,33 +135,33 @@ msgstr "Логотип"
 #: base/templates/base/cards/constructor.html:312
 #: base/templates/base/cards/constructor.html:318
 msgid "Поле пометки"
-msgstr "Заттаңба"
+msgstr "Label"
 
 #: base/templates/base/cards/constructor.html:294
 #: base/templates/base/cards/constructor.html:295
 #: base/templates/base/cards/view.html:294
 msgid "ФИО"
-msgstr "Толық аты"
+msgstr "FULL NAME"
 
 #: base/templates/base/cards/constructor.html:300
 #: base/templates/base/cards/view.html:300
 msgid "Местоположение"
-msgstr "Орналасқан жері"
+msgstr "Place"
 
 #: base/templates/base/cards/constructor.html:301
 msgid "Локация"
-msgstr "Орналасқан жері"
+msgstr "Location"
 
 #: base/templates/base/cards/constructor.html:306
 #: base/templates/base/cards/constructor.html:307
 #: base/templates/base/cards/view.html:306
 msgid "Номер"
-msgstr "Сан"
+msgstr "Number"
 
 #: base/templates/base/cards/constructor.html:318
 #: base/templates/base/cards/constructor.html:319
 msgid "Об"
-msgstr "Туралы"
+msgstr "About"
 
 #: base/templates/base/cards/constructor.html:322
 #: base/templates/base/cards/constructor.html:443
@@ -169,228 +169,230 @@ msgstr "Туралы"
 #: base/templates/base/cards/update_info.html:141
 #: base/templates/base/cards/view.html:327 base/templates/base/settings.html:42
 msgid "Сохранить"
-msgstr "Сақтау"
+msgstr "Save"
 
 #: base/templates/base/cards/constructor.html:433
 msgid "Добавить больше"
-msgstr "Көбірек қосыңыз"
+msgstr "Add more"
 
 #: base/templates/base/cards/constructor.html:441
 msgid "Закрыть"
-msgstr "Жабық"
+msgstr "Exit"
 
 #: base/templates/base/cards/constructor.html:442
 msgid "Посмотреть"
-msgstr "Қараңыз"
+msgstr "View"
 
 #: base/templates/base/cards/constructor.html:459
 msgid "Иконки"
-msgstr "Белгішелер"
+msgstr "Icons"
 
 #: base/templates/base/cards/constructor.html:461
 msgid "Цвет иконок"
-msgstr "Белгіше түсі"
+msgstr "Icon color"
 
 #: base/templates/base/cards/constructor.html:471
 msgid "Размер"
-msgstr "Өлшем"
+msgstr "Size"
 
 #: base/templates/base/cards/constructor.html:482
 msgid "Цвет при наведении"
-msgstr "Меңзерді жылжыту түсі"
+msgstr "Color on hover"
 
 #: base/templates/base/cards/create.html:9
 msgid "Создать карточку"
-msgstr "Создать карточку"
+msgstr "Create a card"
 
 #: base/templates/base/cards/create.html:17
 msgid "Создать новую карточку"
-msgstr "Жаңа карта жасаңыз"
+msgstr "Create a new card"
 
 #: base/templates/base/cards/create.html:27
 #: base/templates/base/cards/update_info.html:35
 msgid "Название визитки на русском"
-msgstr "Орыс тіліндегі визит карточкасының атауы"
+msgstr "Business card name in Russian"
 
 #: base/templates/base/cards/create.html:31
 #: base/templates/base/cards/update_info.html:39
 msgid "Название визитки на казахском"
-msgstr "Қазақша визитка атауы"
+msgstr "Business card name in Kazakh"
 
 #: base/templates/base/cards/create.html:35
 #: base/templates/base/cards/update_info.html:43
 msgid "Название визитки на английском"
-msgstr "Ағылшын тіліндегі визитка атауы"
+msgstr "Business card name in English"
 
 #: base/templates/base/cards/create.html:43
 msgid "Автор визитки"
-msgstr "Визит карточкасының авторы"
+msgstr "Business card writer"
 
 #: base/templates/base/cards/create.html:45 base/templates/base/index.html:23
 msgid "Создать новую"
-msgstr "Жаңасын жасау"
+msgstr "Create a new one"
 
 #: base/templates/base/cards/create_after.html:7
 msgid "Показать данные пользователя"
-msgstr "Пайдаланушы мәліметтерін көрсету"
+msgstr "Show user data"
 
 #: base/templates/base/cards/create_after.html:14
 msgid "Имя"
-msgstr "Аты"
+msgstr "Username"
 
 #: base/templates/base/cards/create_after.html:15
 msgid "Пароль"
-msgstr "Құпия сөз"
+msgstr "Password"
 
 #: base/templates/base/cards/create_after.html:16
 #: base/templates/base/header.html:4
 msgid "Домой"
-msgstr "Үй"
+msgstr "Home"
 
 #: base/templates/base/cards/update_info.html:9
 #: base/templates/base/cards/update_info.html:20
 #: base/templates/base/cards/update_info.html:25
 msgid "Обновить главную информацию"
-msgstr "Негізгі ақпаратты жаңарту"
+msgstr "Update the main information"
 
 #: base/templates/base/cards/update_info.html:18
 #: base/templates/base/cards/update_info.html:136
 msgid "Обновить социальные сети"
-msgstr "Әлеуметтік желілерді жаңартыңыз"
+msgstr "Update social media"
 
 #: base/templates/base/cards/update_info.html:57
 msgid "ФИО на русском"
-msgstr "Толық аты-жөні орысша"
+msgstr "FULL NAME in Russian"
 
 #: base/templates/base/cards/update_info.html:61
 msgid "ФИО на казахском"
-msgstr "Толық аты-жөні қазақша"
+msgstr "FULL NAME in Kazakh"
 
 #: base/templates/base/cards/update_info.html:65
 msgid "ФИО визитки на английском"
-msgstr "Ағылшын тіліндегі толық аты-жөні визиткалары"
+msgstr "FULL NAME in English"
 
 #: base/templates/base/cards/update_info.html:72
 msgid "Номер телефона"
-msgstr "Телефон нөмірі"
+msgstr "Phone number"
 
 #: base/templates/base/cards/update_info.html:82
 msgid "Картинка"
-msgstr "Сурет"
+msgstr "Picture"
 
 #: base/templates/base/cards/update_info.html:94
 msgid "Местоположение на русском"
-msgstr "Орыс тілінде орналасқан жері"
+msgstr "Location in Russian"
 
 #: base/templates/base/cards/update_info.html:98
 msgid "Местоположение на казахском"
-msgstr "Орналасқан жері қазақша"
+msgstr "Location in Kazakh"
 
 #: base/templates/base/cards/update_info.html:102
 msgid "Местоположение на английском"
-msgstr "ағылшын тілінде орналасқан жері"
+msgstr "Location in English"
 
 #: base/templates/base/cards/update_info.html:116
 msgid "Описание на русском"
-msgstr "Орыс тілінде сипаттама"
+msgstr "Description in Russian"
 
 #: base/templates/base/cards/update_info.html:120
 msgid "Описание на казахском"
-msgstr "Қазақ тілінде сипаттама"
+msgstr "Description in Kazakh"
 
 #: base/templates/base/cards/update_info.html:124
 msgid "Описание на английском"
-msgstr "Ағылшын тілінде сипаттама"
+msgstr "Description in English"
 
 #: base/templates/base/cards/update_info.html:131
 msgid "Ссылка на видео в ютуб"
-msgstr "YouTube сайтындағы бейнеге сілтеме"
+msgstr "YouTube video link"
 
 #: base/templates/base/cards/view.html:27
 msgid "Translate"
-msgstr "Аудару"
+msgstr ""
 
 #: base/templates/base/cards/view.html:312
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #: base/templates/base/cards/view.html:318
+#, fuzzy
+#| msgid "Подробная информация"
 msgid "Подробная информация "
-msgstr "Толық ақпарат"
+msgstr "Detailed information"
 
 #: base/templates/base/cards/view.html:441
 msgid "Скопировано"
-msgstr "Көшірілген"
+msgstr "Copied"
 
 #: base/templates/base/delete.html:7
 msgid "Удалить пользователя"
-msgstr "Пайдаланушыны жою"
+msgstr "Delete user"
 
 #: base/templates/base/delete.html:14
 msgid "Вы действительно хотите удалить"
-msgstr "Жойғыңыз келетініне сенімдісіз бе"
+msgstr "Do you really want to delete"
 
 #: base/templates/base/delete.html:17
 msgid "Вернуться"
-msgstr "Қайту"
+msgstr "Return"
 
 #: base/templates/base/delete.html:18 base/templates/base/index.html:42
 #: base/templates/base/index.html:77
 msgid "Удалить"
-msgstr "Жою"
+msgstr "Delete"
 
 #: base/templates/base/header.html:3
 msgid "Привет"
-msgstr "Сәлеметсіз бе"
+msgstr "Hi"
 
 #: base/templates/base/header.html:5 base/templates/base/settings.html:8
 #: base/templates/base/settings.html:16
 msgid "Настройки"
-msgstr "Параметрлер"
+msgstr "Settings"
 
 #: base/templates/base/header.html:6
 msgid "Выйти"
-msgstr "Шығу"
+msgstr "Sign Out"
 
 #: base/templates/base/index.html:7
 msgid "Админ панель"
-msgstr "Әкімші панелі"
+msgstr "Admin panel"
 
 #: base/templates/base/index.html:15
 msgid "Визитки"
-msgstr "Визит карточкалары"
+msgstr "Business cards"
 
 #: base/templates/base/index.html:18
 msgid "Поиск визиток"
-msgstr "Визит карталарын іздеңіз"
+msgstr "Business card search"
 
 #: base/templates/base/index.html:19
 msgid "Поиск"
-msgstr "Іздеу"
+msgstr "Search"
 
 #: base/templates/base/index.html:37
 msgid "Редактировать"
-msgstr "Өңдеу"
+msgstr "Edit"
 
 #: base/templates/base/index.html:52
 msgid "Визитки не найдены"
-msgstr "Ешқандай визитка табылмады"
+msgstr "Business cards not found"
 
 #: base/templates/base/index.html:60
 msgid "Пользователи"
-msgstr "Пайдаланушылар"
+msgstr "Users"
 
 #: base/templates/base/index.html:64
 msgid "Искать"
-msgstr "Іздеу"
+msgstr "Search"
 
 #: base/templates/base/index.html:85
 msgid "Пользователи не найдены"
-msgstr "Ешбір пайдаланушы табылмады"
+msgstr "Users not found"
 
 #: base/templates/base/settings.html:20
 msgid "Имя..."
-msgstr "Аты..."
+msgstr "Username..."
 
 #: base/templates/base/settings.html:27
 msgid "Email..."
@@ -398,43 +400,43 @@ msgstr "Email..."
 
 #: base/templates/base/settings.html:33
 msgid "Новый пароль..."
-msgstr "Жаңа пароль..."
+msgstr "New password..."
 
 #: base/templates/base/settings.html:38
 msgid "Подтвердить пароль..."
-msgstr "Құпия сөзді Растау..."
+msgstr "Confirm password..."
 
 #: base/templates/base/settings.html:43
 msgid "Уйти"
-msgstr "Кетіңіз"
+msgstr "Walk away."
 
 #: base/templates/base/sign_in.html:7 base/templates/base/sign_in.html:15
 msgid "Вход"
-msgstr "Кіру"
+msgstr "Sign In"
 
 #: base/templates/base/sign_in.html:16
 msgid "Новичок"
-msgstr "Жаңадан келген"
+msgstr "Newcomer"
 
 #: base/templates/base/sign_in.html:16
 msgid "Напиши Мусе"
-msgstr "Мұсаға жаз"
+msgstr "Write to Musa"
 
 #: base/templates/base/sign_in.html:19
 msgid "Ваше имя"
-msgstr "Сіздің атыңыз"
+msgstr "Your name"
 
 #: base/templates/base/sign_in.html:25
 msgid "Ваш пароль"
-msgstr "құпия сөзіңіз"
+msgstr "Your password"
 
 #: base/templates/base/sign_in.html:29
 msgid "Продолжить"
-msgstr "Жалғастыру"
+msgstr "Continue"
 
 #: base/templates/base/sign_in.html:37
 msgid "Создавайте визитки быстро и в своем стиле!"
-msgstr "Визиткаларды тез және өз стиліңізде жасаңыз!"
+msgstr "Create business cards quickly and in your own style!"
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:7
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:220

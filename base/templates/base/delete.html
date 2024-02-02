@@ -11,7 +11,7 @@
 {% include 'base/header.html' %}
 <div class="page">
     <form class="page__form" method="POST">
-        <h3>{% trans 'Вы действительно хотите удалит' %} <i>{% if type == 'company' %} {{user.slug}} {% else %} {{request.user.username}} {% endif %}</i>?</h3>
+        <h3>{% trans 'Вы действительно хотите удалить' %} <i>{% if type == 'company' %} {{user.slug}} {% else %} {{request.user.username}} {% endif %}</i>?</h3>
         {% csrf_token %}
         <div class="page__form__buttons">
             <a href="/" class="btn">{% trans 'Вернуться' %}</a>

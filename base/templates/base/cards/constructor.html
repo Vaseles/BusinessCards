@@ -292,12 +292,12 @@
             {% if company.title %}
                <div class="data__field">
                   <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'ФИО'  %}: </label>
-                  <input  class="text" title="title" name='{% trans 'Фио' %}' value="{{company.title}}"/>
+                  <input  class="text" title="title" name="{% trans 'ФИО' %}" value="{{company.title}}"/>
                </div>
             {% endif %}
             {% if company.location %}
                <div class="data__field">
-                  <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'Место' %}: </label>
+                  <label for="" class="label" title="{% trans 'Поле пометки' %}">{% trans 'Местоположение' %}: </label>
                   <input  class="text" name="location" title="{% trans 'Локация' %}" value="{{company.location}}" />
                </div>
             {% endif %}
