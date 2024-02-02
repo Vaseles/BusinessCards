@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +34,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'modeltranslation', 
+    'modeltranslation',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -116,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -143,14 +146,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-gettext = lambda s: s
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'kk'
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'kk'
+
 LANGUAGES = [
-    ('en', gettext('English')),
-    ('ru', gettext('Russian')),
-    ('kk', gettext('Kazakh')),
+    ('ru', _('Russia')),
+    ('kk', _('Kazakh')),
+    ('en', _('English')),
 ]
 
-MODELTRANSLATION_LANGUAGES = ( 'en', 'ru', 'kk')
+MODELTRANSLATION_LANGUAGES = ('ru', 'kk', 'en')
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),

@@ -9,6 +9,15 @@ class CompanySocialMediaForm(ModelForm):
    class Meta:
       model = CompanySocialMedia
       fields = '__all__'
+
+class CreateNewCard(ModelForm):
+    name_en = CharField(required=True)
+    name_ru = CharField(required=True)
+    name_kk = CharField(required=True)
+
+    class Meta:
+        model = Company
+        fields = ('name_en', 'name_ru', 'name_kk', )
    
 class CreateUserForm(UserCreationForm):
     username = CharField(widget=TextInput(attrs={'placeholder': 'Username'}))

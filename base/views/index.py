@@ -18,7 +18,6 @@ def show_company(request, slug: str):
     url = company.link_on_video.split('/')
     url[2] = 'www.youtube.com/embed'
     url = '/'.join(url)
-    print('_____________________', url)
 
    context = {
       'company': company, 

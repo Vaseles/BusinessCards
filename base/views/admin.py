@@ -8,58 +8,70 @@ from django.contrib.auth.hashers import make_password
 
 from ..utils import generate_slug, password_generator, username_generator
 from ..models import Company, CompanySocialMedia
+from ..forms import CreateNewCard
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def create_card(request):
     type = 'create'
     users = User.objects.all()
+    form = CreateNewCard()
     
     if request.method == 'POST':
-        name = request.POST.get('name')
-        slug = generate_slug(name)
-        user = request.POST.get('user')
-                
-        if (user == 'create_new'):
-            username = username_generator()
-            password = password_generator()
-            
-            user = User.objects.create(
-                username = username,
-                password = make_password(password) 
-            )
-        
-            company = Company.objects.create(
-                name = name,
-                slug = slug,
-                user = user
-            )
-            
-            company_icons = CompanySocialMedia.objects.create(
-                contact = company
-            )
-            
-            return render(request, 'base/cards/create_after.html', {
-                'username': username,
-                'password': password,
-            } )
+        form = CreateNewCard(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['name_en']
+            slug = generate_slug(name)
+            user_id = request.POST.get('user')
+            print('name: ', name, 'user_id: ', user_id, 'slug: ', slug)
+
+            if user_id == 'create_new':
+                username = username_generator()
+                password = password_generator()
+
+                user = User.objects.create(
+                    username=username,
+                    password=make_password(password)
+                )
+
+                company = form.save(commit=False)
+                company.user = user
+                company.slug = slug
+                company.save()
+
+                company_icons = CompanySocialMedia.objects.create(
+                    contact=company
+                )
+
+                return render(request, 'base/cards/create_after.html', {
+                    'username': username,
+                    'password': password,
+                } )
+            else:
+                user = User.objects.get(id=user_id)
+                print('USER:', user)
+
+                company = form.save(commit=False)
+                company.user = user
+                company.slug = slug
+                company.save()
+
+                company_icons = CompanySocialMedia.objects.create(
+                    contact=company
+                )
+
+                messages.success(request, f'Card {company.name} created')
+                return redirect('base:index')
+
         else:
-            company = Company.objects.create(
-                name = name,
-                slug = slug,
-                user = User.objects.get(id=user)
-            )
-            
-            company_icons = CompanySocialMedia.objects.create(
-                contact = company
-            )
-                     
-            messages.success(request, f'Card {company.name} created')
-            return redirect('base:index')
-        
+            print(form.errors)
+            messages.error(request, 'Please enter correct data!')
+
     context = {
         'users': users,
-        'type': type
+        'type': type,
+        'form': form,
     }
     return render(request, 'base/cards/create.html', context)
     
